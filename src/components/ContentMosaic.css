@@ -70,6 +70,7 @@
   background: rgba(255, 255, 255, 0.75);
   border-radius: var(--radius-md);
   backdrop-filter: blur(8px);
+  text-align: center;
 }
 
 .content-mosaic__funnel-title {
@@ -77,6 +78,16 @@
   font-size: 15px;
   font-weight: 700;
   color: var(--color-violet-dark);
+  text-align: center;
+}
+
+.content-mosaic__funnel .flow-timeline {
+  margin-inline: auto;
+}
+
+.content-mosaic > .conclusion {
+  width: min(100%, 760px);
+  margin-inline: auto;
   text-align: center;
 }
 

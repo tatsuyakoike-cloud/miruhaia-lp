@@ -44,29 +44,19 @@
 }
 
 .plan-tile__head h3 {
-  margin: 0 0 8px;
+  margin: 10px 0 0;
   padding-right: 72px;
-  font-size: 17px;
+  font-size: 19px;
 }
 
-.plan-tile__price {
-  margin: 0;
-  font-size: 14px;
-}
-
-.plan-tile__price strong {
-  display: block;
-  margin-top: 4px;
-  font-size: clamp(28px, 4vw, 36px);
+.plan-tile__type {
+  display: inline-flex;
+  padding: 5px 12px;
+  background: rgba(96, 81, 200, 0.1);
+  border-radius: 999px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--color-violet);
-}
-
-.plan-tile__price small {
-  display: block;
-  margin-top: 4px;
-  font-size: 12px;
-  color: var(--color-muted);
 }
 
 .plan-tile ul {
@@ -80,30 +70,16 @@
   font-size: 14px;
 }
 
-.plan-tile__note {
-  margin: 0;
-  font-size: 12px;
-  color: var(--color-muted);
-}
-
-.campaign-banner {
+.plan-tile__link {
   display: flex;
-  gap: 16px;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 24px;
-  padding: 20px 24px;
-  background: linear-gradient(90deg, var(--color-yellow-pale), rgba(255, 243, 180, 0.4));
-  border-radius: var(--radius-md);
-}
-
-.campaign-banner h3 {
-  margin: 0 0 4px;
-  font-size: 16px;
-}
-
-.campaign-banner p {
-  margin: 0;
+  margin-top: 6px;
+  padding-top: 16px;
   font-size: 14px;
+  font-weight: 700;
+  color: var(--color-violet);
+  text-decoration: none;
 }
 
 .pricing-cta {
@@ -112,20 +88,25 @@
 }
 
 .addons-block {
-  margin-top: 48px;
-  padding-top: 36px;
+  width: min(100%, 900px);
+  margin: 64px auto 0;
+  padding: clamp(28px, 4vw, 40px);
+  background: linear-gradient(145deg, var(--color-violet-pale), rgba(255, 255, 255, 0.86));
+  border-radius: var(--radius-md);
+  text-align: center;
 }
 
 .addons-block h3 {
-  margin: 0 0 16px;
-  font-size: 18px;
+  margin: 0 0 20px;
+  font-size: clamp(20px, 3vw, 26px);
 }
 
 .addons-block__tags {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 
 .addons-block__tags span {
@@ -140,4 +121,10 @@
   margin: 0;
   font-size: 13px;
   color: var(--color-muted);
+}
+
+.addons-block > .section-label {
+  display: flex;
+  width: fit-content;
+  margin-inline: auto;
 }

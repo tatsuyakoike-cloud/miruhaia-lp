@@ -2,18 +2,18 @@ export const siteContent = {
   nav: [
     { label: "サービスの特徴", href: "#features" },
     { label: "動画事例", href: "#videos" },
-    { label: "料金", href: "#pricing" },
+    { label: "プラン", href: "#pricing" },
     { label: "よくある質問", href: "#faq" },
   ],
   hero: {
     headline: "見える会社は、選ばれる。",
     subheadline: "ショート動画で、会社のリアルを採用力に変える。",
-    body: "企画・撮影・編集・投稿・分析まで。採用のためのショート動画運用を、専任チームがまるごと支援します。",
+    body: "",
     primaryCta: "無料で相談する",
     secondaryCta: "動画の品質を見る",
   },
   painPoints: {
-    title: "採用・求人で、こんなお悩みはありませんか？",
+    title: "採用で、困っていませんか？",
     items: [
       { icon: "recruitment-person", text: "応募が集まらない" },
       { icon: "search-discovery", text: "若手に届かない" },
@@ -24,7 +24,7 @@ export const siteContent = {
     ],
   },
   market: {
-    title: "求人を出すだけでは、埋もれやすい時代です。",
+    title: "求人は、出すだけでは届かない。",
     stats: [
       {
         value: "50.6%",
@@ -40,24 +40,24 @@ export const siteContent = {
       },
     ],
     cycle: ["求人掲載", "応募が少ない", "条件変更・追加出稿", "一時的な応募", "掲載終了で露出ゼロ", "再出稿"],
-    conclusion: "採用費が積み上がる一方で、会社の情報は残りにくい。",
+    conclusion: "採用費は増えても、会社の魅力は残らない。",
   },
   cause: {
-    title: "採用が難しい本当の理由は、会社が見えていないこと。",
+    title: "採用の壁は、「見えないこと」。",
     points: ["条件だけで比較される", "職場が見えない", "入社後を想像できない"],
     body: "魅力がないのではありません。働く人、仕事、雰囲気が、応募前の求職者に届いていないのです。",
   },
   jobSeeker: {
-    title: "求職者の約7割が、転職活動でSNS・動画を使う。",
+    title: "求職者は、SNSで会社を見ている。",
     stat: "69.8%",
     statLabel: "転職活動でSNS・動画を利用",
     source: "マイナビ 転職活動におけるSNS利用調査（2026年1月）",
     sourceUrl: "https://career-research.mynavi.jp/reserch/20260227_108345/",
     flow: ["求人を見る", "SNSで社名検索", "人・仕事・社風を確認", "応募を判断"],
-    conclusion: "求人票だけでは、比較に必要な情報が足りません。",
+    conclusion: "応募を動かすのは、求人票の先にある「会社のリアル」です。",
   },
   roles: {
-    title: "求人媒体とSNSは、役割が違います。",
+    title: "求人票とSNS、それぞれの役割。",
     items: [
       { label: "求人媒体", text: "今すぐ探す人へ、募集条件を届ける" },
       { label: "SNS・動画", text: "まだ知らない人へ、会社のリアルを届ける" },
@@ -65,7 +65,7 @@ export const siteContent = {
     conclusion: "組み合わせることで、応募前の不安を減らし、採用力を高めます。",
   },
   solution: {
-    title: "ミルハイアは、会社のリアルをショート動画で可視化します。",
+    title: "会社のリアルを、ショート動画に。",
     roles: [
       { title: "知ってもらう", text: "会社の存在と魅力を届ける" },
       { title: "理解してもらう", text: "人・仕事・文化を短尺で伝える" },
@@ -74,7 +74,7 @@ export const siteContent = {
     body: "会社の魅力を探し、伝わる形に整え、応募までの導線をつくります。",
   },
   videos: {
-    title: "どんな動画をつくるのか、実際にご覧ください。",
+    title: "動画事例",
     pendingNote: "動画ファイルを配置すると、ここで再生できます。",
   },
   support: {
@@ -95,21 +95,21 @@ export const siteContent = {
     note: "再生数だけではなく、応募につながる行動まで確認します。",
   },
   operation: {
-    title: "専任チームが、迷わない運用を支えます。",
+    title: "専任チームが、運用を支えます。",
     clientTasks: ["情報提供", "撮影協力", "内容確認"],
     benefits: ["継続しやすい", "採用コンテンツが蓄積する", "次の募集や会社紹介にも再利用できる"],
   },
   differentiators: {
-    title: "初めてSNS採用に挑戦する中小企業に、ちょうどいい。",
+    title: "はじめてのSNS採用に、ちょうどいい。",
     items: [
-      { title: "月15万円から始められる", text: "小さく試して、必要に応じて拡張" },
+      { title: "小さく始められる", text: "必要に応じて段階的に拡張" },
       { title: "応募導線まで支援", text: "動画制作だけで終わらない" },
       { title: "専門担当がいなくても進められる", text: "企画から投稿までお任せ" },
     ],
     note: "まず小さく試し、必要な施策を後から追加できます。",
   },
   pricing: {
-    title: "会社の状況に合わせて、3つのプランから選べます。",
+    title: "選べる3つのプラン",
     videoQuantityNote: "動画本数の詳細はご相談時にご案内します",
     cta: "自社に合うプランを相談する",
     addonsTitle: "必要な施策だけ、後から追加できます。",
@@ -170,7 +170,7 @@ export const siteContent = {
     ],
   },
   contact: {
-    title: "まずは、御社の採用課題をお聞かせください。",
+    title: "採用の悩み、まずは聞かせてください。",
     cta: "無料で相談する",
     formPendingMessage:
       "現在、お問い合わせフォームを準備中です。公開までしばらくお待ちください。",

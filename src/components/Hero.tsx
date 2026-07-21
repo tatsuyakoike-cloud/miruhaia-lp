@@ -1,5 +1,4 @@
 import { siteContent } from "../content/siteContent";
-import { BrandLogo } from "./BrandLogo";
 import { decorationAsset, photos } from "../lib/assets";
 import "./Hero.css";
 
@@ -13,23 +12,6 @@ export function Hero() {
       <img className="hero__bg-rings" src={decorationAsset("iris-rings")} alt="" aria-hidden="true" />
 
       <div className="container hero__grid">
-        <div className="hero__copy">
-          <BrandLogo variant="tagline" className="hero__logo" />
-          <h1 id="hero-heading" className="hero__title">
-            {hero.headline}
-          </h1>
-          <p className="hero__subtitle">{hero.subheadline}</p>
-          <p className="hero__body">{hero.body}</p>
-          <div className="hero__actions">
-            <a href="#contact" className="btn btn--primary">
-              {hero.primaryCta}
-            </a>
-            <a href="#videos" className="btn btn--secondary">
-              {hero.secondaryCta}
-            </a>
-          </div>
-        </div>
-
         <div className="hero__stage">
           <img
             className="hero__photo-bg"
@@ -56,6 +38,25 @@ export function Hero() {
             ))}
           </div>
           <img className="hero__beam" src={decorationAsset("spotlight-beam")} alt="" aria-hidden="true" />
+        </div>
+
+        <div className="hero__copy">
+          <h1 id="hero-heading" className="hero__title">
+            {hero.headline}
+          </h1>
+          <p className="hero__subtitle">
+            ショート動画で、会社のリアルを。
+            <br />
+            採用力に変える。
+          </p>
+          <div className="hero__actions">
+            <a href="#contact" className="btn btn--primary">
+              {hero.primaryCta}
+            </a>
+            <a href="#videos" className="btn btn--secondary">
+              {hero.secondaryCta}
+            </a>
+          </div>
         </div>
       </div>
     </section>

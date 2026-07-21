@@ -101,9 +101,9 @@ export function VideoGallery() {
         <div>
           <p className="section-label">動画事例</p>
           <h2 id="videos-heading" className="section-heading">
-            どんな動画をつくるのか、実際にご覧ください。
+            {videos.title}
           </h2>
-          <p className="section-lead">{videos.pendingNote}</p>
+          <p className="section-lead">人・仕事・文化を、ショート動画で伝えます。</p>
         </div>
         <img
           className="video-section__illust"

@@ -36,15 +36,32 @@ export function PainPoints() {
 export function MarketChallenge() {
   const { market } = siteContent;
   return (
-    <SectionShell tone="spotlight" decos={["rings"]} labelledBy="market-heading">
+    <SectionShell className="market-section" tone="spotlight" decos={["rings"]} labelledBy="market-heading">
       <p className="section-label">市場</p>
       <h2 id="market-heading" className="section-heading">
         {market.title}
       </h2>
       <div className="stat-blobs">
-        {market.stats.map((stat) => (
+        {market.stats.map((stat, index) => (
           <div key={stat.label} className="stat-blob">
-            <span className="stat-blob__value">{stat.value}</span>
+            {index === 0 ? (
+              <div className="stat-ring" aria-label={stat.value}>
+                <span>{stat.value}</span>
+              </div>
+            ) : (
+              <div className="stat-bars" aria-label={stat.value}>
+                <div className="stat-bars__row">
+                  <span>求人件数</span>
+                  <strong>188.7%</strong>
+                  <i style={{ width: "100%" }} />
+                </div>
+                <div className="stat-bars__row">
+                  <span>応募数</span>
+                  <strong>127.7%</strong>
+                  <i style={{ width: "68%" }} />
+                </div>
+              </div>
+            )}
             <span className="stat-blob__label">{stat.label}</span>
             <a className="stat-blob__source" href={stat.url} target="_blank" rel="noopener noreferrer">
               出典：{stat.source}
@@ -70,7 +87,7 @@ export function CauseSection() {
         <div>
           <p className="section-label">原因</p>
           <h2 id="cause-heading" className="section-heading">
-            採用が難しい本当の理由は、<em className="text-violet">会社が見えていない</em>こと。
+            {cause.title}
           </h2>
           <ul className="check-list">
             {cause.points.map((point) => (
@@ -115,12 +132,14 @@ export function JobSeekerTrend() {
           loading="lazy"
         />
       </div>
-      <FlowTimeline
-        steps={jobSeeker.flow.map((label) => ({ label }))}
-        variant="horizontal"
-        numbered={false}
-      />
-      <p className="conclusion">{jobSeeker.conclusion}</p>
+      <div className="jobseeker-flow">
+        <FlowTimeline
+          steps={jobSeeker.flow.map((label) => ({ label }))}
+          variant="horizontal"
+          numbered={false}
+        />
+        <p className="conclusion">{jobSeeker.conclusion}</p>
+      </div>
     </SectionShell>
   );
 }
@@ -160,7 +179,7 @@ export function SolutionSection() {
         <div>
           <p className="section-label">解決策</p>
           <h2 id="solution-heading" className="section-heading">
-            <span className="spot">ミルハイア</span>は、会社のリアルをショート動画で可視化します。
+            {solution.title}
           </h2>
           <div className="promise-row">
             {solution.roles.map((role) => (
@@ -191,7 +210,7 @@ export function SupportScope() {
       <h2 id="support-heading" className="section-heading">
         {support.title}
       </h2>
-      <p className="section-lead">戦略から分析まで、6つのステップで一気通貫。専任チームが伴走します。</p>
+      <p className="section-lead">6つのステップを、専任チームが伴走。</p>
       <FlowTimeline
         steps={support.steps.map((s) => ({ label: s.label, text: s.text, icon: s.icon }))}
         variant="horizontal"
@@ -302,7 +321,7 @@ export function Differentiators() {
 export function ProcessSteps() {
   const { process } = siteContent;
   return (
-    <SectionShell tone="white" labelledBy="process-heading">
+    <SectionShell className="process-section" tone="white" labelledBy="process-heading">
       <p className="section-label">開始まで</p>
       <h2 id="process-heading" className="section-heading">
         {process.title}

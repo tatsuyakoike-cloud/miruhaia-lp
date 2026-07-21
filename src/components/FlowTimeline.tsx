@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { iconAsset } from "../lib/assets";
 import "./FlowTimeline.css";
 
@@ -14,8 +15,12 @@ type FlowTimelineProps = {
 };
 
 export function FlowTimeline({ steps, variant = "horizontal", numbered = true }: FlowTimelineProps) {
+  const timelineStyle = {
+    "--step-count": steps.length,
+  } as CSSProperties;
+
   return (
-    <ol className={`flow-timeline flow-timeline--${variant}`}>
+    <ol className={`flow-timeline flow-timeline--${variant}`} style={timelineStyle}>
       {steps.map((step, index) => (
         <li key={step.label} className="flow-timeline__step">
           <div className="flow-timeline__marker" aria-hidden="true">
