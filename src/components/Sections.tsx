@@ -87,7 +87,8 @@ export function CauseSection() {
         <div>
           <p className="section-label">原因</p>
           <h2 id="cause-heading" className="section-heading">
-            {cause.title}
+            <span className="heading-line">採用の壁は、</span>
+            <span className="heading-line">「見えないこと」。</span>
           </h2>
           <ul className="check-list">
             {cause.points.map((point) => (
@@ -115,7 +116,8 @@ export function JobSeekerTrend() {
         <div>
           <p className="section-label">求職者</p>
           <h2 id="jobseeker-heading" className="section-heading">
-            {jobSeeker.title}
+            <span className="heading-line">求職者は、</span>
+            <span className="heading-line">SNSで会社を見ている。</span>
           </h2>
           <div className="mega-stat">
             <span className="mega-stat__num">{jobSeeker.stat}</span>
@@ -230,7 +232,6 @@ export function ContentFlow() {
 
 export function OperationTeam() {
   const { operation } = siteContent;
-  const clientSteps = operation.clientTasks.map((label) => ({ label }));
   const teamRoles = [
     { label: "ディレクター", icon: "strategy-target" },
     { label: "企画", icon: "planning-lightbulb" },
@@ -246,12 +247,7 @@ export function OperationTeam() {
       </h2>
 
       <div className="team-flow">
-        <div className="team-flow__panel">
-          <h3>お客様にお願いすること</h3>
-          <FlowTimeline steps={clientSteps} variant="vertical" />
-        </div>
-
-        <div className="team-flow__center">
+        <div className="team-flow__visual">
           <img
             src={illustrationAsset("service-flow")}
             alt="ミルハイアの支援フロー"
@@ -268,16 +264,30 @@ export function OperationTeam() {
           </div>
         </div>
 
-        <div className="team-flow__panel team-flow__panel--photo">
-          <img src={photos.teamWide} alt="チームで協力する社員" loading="lazy" />
-          <div>
+        <div className="team-flow__details">
+          <div className="team-flow__tasks">
+            <h3>お客様にお願いするのは、3つだけ</h3>
+            <ul>
+              {operation.clientTasks.map((task, index) => (
+                <li key={task}>
+                  <span>0{index + 1}</span>
+                  {task}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <figure className="team-flow__benefits">
+            <img src={photos.teamWide} alt="チームで協力する社員" loading="lazy" />
+            <figcaption>
             <h3>続けるメリット</h3>
             <ul className="benefit-list">
               {operation.benefits.map((b) => (
                 <li key={b}>{b}</li>
               ))}
             </ul>
-          </div>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </SectionShell>

@@ -66,6 +66,29 @@
   gap: 12px;
 }
 
+.hero__campaign-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--color-violet-dark);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hero__campaign-link span:first-child {
+  padding: 4px 10px;
+  background: var(--color-yellow);
+  border-radius: 999px;
+  color: var(--color-navy);
+  font-size: 11px;
+}
+
+.hero__campaign-link:hover {
+  color: var(--color-violet);
+}
+
 .hero__stage {
   position: relative;
   min-height: clamp(360px, 55vw, 520px);
@@ -261,5 +284,11 @@
 
   .hero__actions {
     justify-content: center;
+  }
+
+  .hero__campaign-link {
+    justify-content: center;
+    width: 100%;
+    margin-top: 8px;
   }
 }

@@ -22,13 +22,19 @@ export function Header() {
   }, [menuOpen]);
 
   return (
-    <header className={`header ${scrolled ? "header--scrolled" : ""}`}>
+    <header
+      className={`header ${scrolled ? "header--scrolled" : ""} ${menuOpen ? "header--menu-open" : ""}`}
+    >
       <div className="container header__inner">
         <a href="#top" className="header__logo" aria-label={siteConfig.brandName}>
           <BrandLogo variant="primary" />
         </a>
 
-        <nav className={`header__nav ${menuOpen ? "header__nav--open" : ""}`} aria-label="メインナビゲーション">
+        <nav
+          id="mobile-navigation"
+          className={`header__nav ${menuOpen ? "header__nav--open" : ""}`}
+          aria-label="メインナビゲーション"
+        >
           <ul className="header__links">
             {siteContent.nav.map((item) => (
               <li key={item.href}>
@@ -47,6 +53,7 @@ export function Header() {
           type="button"
           className="header__menu-btn"
           aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
           aria-label={menuOpen ? "メニューを閉じる" : "メニューを開く"}
           onClick={() => setMenuOpen((v) => !v)}
         >

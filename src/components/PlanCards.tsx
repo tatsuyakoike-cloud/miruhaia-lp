@@ -13,6 +13,14 @@ export function PlanCards() {
         {pricing.title}
       </h2>
 
+      <div className="pricing-campaign">
+        <span className="pricing-campaign__label">導入キャンペーン</span>
+        <p>
+          初期費用 <strong>0円</strong>
+        </p>
+        <span>適用条件の詳細は、ご相談時にご案内します。</span>
+      </div>
+
       <div className="plan-stack">
         {pricing.plans.map((plan, index) => {
           const featured = "featured" in plan && plan.featured;

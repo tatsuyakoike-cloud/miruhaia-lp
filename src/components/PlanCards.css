@@ -1,3 +1,40 @@
+.pricing-campaign {
+  display: grid;
+  justify-items: center;
+  width: min(100%, 620px);
+  margin: 0 auto clamp(28px, 5vw, 48px);
+  padding: clamp(22px, 4vw, 32px);
+  background:
+    radial-gradient(circle at 90% 0%, var(--color-yellow-glow), transparent 45%),
+    rgba(255, 255, 255, 0.78);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.pricing-campaign__label {
+  padding: 5px 13px;
+  background: var(--color-yellow);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pricing-campaign p {
+  margin: 10px 0 4px;
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700;
+}
+
+.pricing-campaign p strong {
+  color: var(--color-violet);
+  font-size: 1.55em;
+}
+
+.pricing-campaign > span:last-child {
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
 .plan-stack {
   display: grid;
   gap: 16px;

@@ -57,6 +57,19 @@ export function Hero() {
               {hero.secondaryCta}
             </a>
           </div>
+          <a
+            href="#pricing"
+            className="hero__campaign-link"
+            onClick={(event) => {
+              event.preventDefault();
+              window.history.pushState(null, "", "#pricing");
+              document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+          >
+            <span>初期費用0円</span>
+            キャンペーンについてはこちら
+            <span aria-hidden="true">↓</span>
+          </a>
         </div>
       </div>
     </section>
