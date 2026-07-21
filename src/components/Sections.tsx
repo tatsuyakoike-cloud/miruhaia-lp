@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { siteContent } from "../content/siteContent";
 import { siteConfig } from "../config/siteConfig";
+import { SectionShell } from "./SectionShell";
 import "./Sections.css";
 import "./FaqAccordion.css";
 import "./ContactCta.css";
@@ -10,310 +11,321 @@ function iconPath(name: string): string {
   return `/assets/miruhaia/icons/miruhaia_icon_${name}.svg`;
 }
 
+function FlowTrack({ items, highlightLast = false }: { items: readonly string[]; highlightLast?: boolean }) {
+  return (
+    <div className="flow-track">
+      {items.map((step, i) => (
+        <span key={step} style={{ display: "contents" }}>
+          <span
+            className={`flow-pill ${highlightLast && i === items.length - 1 ? "flow-pill--violet" : ""}`}
+          >
+            {step}
+          </span>
+          {i < items.length - 1 && <span className="flow-arrow">→</span>}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export function PainPoints() {
   const { painPoints } = siteContent;
   return (
-    <section className="section section--ivory" aria-labelledby="pain-heading">
-      <div className="container">
-        <h2 id="pain-heading" className="section-heading">
-          {painPoints.title}
-        </h2>
-        <div className="card-grid card-grid--3 card-grid--6">
-          {painPoints.items.map((item) => (
-            <div key={item.text} className="card icon-card">
-              <img src={iconPath(item.icon)} alt="" width={48} height={48} loading="lazy" />
-              <p>{item.text}</p>
+    <SectionShell tone="white" decos={["grid"]} labelledBy="pain-heading">
+      <p className="section-label">Problem</p>
+      <h2 id="pain-heading" className="section-heading">
+        {painPoints.title}
+      </h2>
+      <div className="pain-scroll">
+        {painPoints.items.map((item) => (
+          <div key={item.text} className="pain-bubble">
+            <div className="pain-bubble__icon">
+              <img src={iconPath(item.icon)} alt="" width={40} height={40} loading="lazy" />
             </div>
-          ))}
-        </div>
+            <p>{item.text}</p>
+          </div>
+        ))}
       </div>
-    </section>
+    </SectionShell>
   );
 }
 
 export function MarketChallenge() {
   const { market } = siteContent;
   return (
-    <section className="section" aria-labelledby="market-heading">
-      <div className="container">
-        <h2 id="market-heading" className="section-heading">
-          {market.title}
-        </h2>
-        <div className="card-grid card-grid--2">
-          {market.stats.map((stat) => (
-            <div key={stat.label} className="card stat-card">
-              <span className="stat-card__value">{stat.value}</span>
-              <span className="stat-card__label">{stat.label}</span>
-              <span className="stat-card__source">
-                出典：
-                <a href={stat.url} target="_blank" rel="noopener noreferrer">
-                  {stat.source}
-                </a>
-              </span>
-            </div>
-          ))}
-        </div>
-        <div className="flow-row" style={{ marginTop: 32 }}>
-          {market.cycle.map((step, i) => (
-            <span key={step}>
-              <span className="flow-row__item">{step}</span>
-              {i < market.cycle.length - 1 && <span className="flow-row__arrow">→</span>}
-            </span>
-          ))}
-        </div>
-        <p className="conclusion">{market.conclusion}</p>
+    <SectionShell tone="spotlight" decos={["rings"]} labelledBy="market-heading">
+      <p className="section-label">Market</p>
+      <h2 id="market-heading" className="section-heading">
+        {market.title}
+      </h2>
+      <div className="stat-blobs">
+        {market.stats.map((stat) => (
+          <div key={stat.label} className="stat-blob">
+            <span className="stat-blob__value">{stat.value}</span>
+            <span className="stat-blob__label">{stat.label}</span>
+            <a className="stat-blob__source" href={stat.url} target="_blank" rel="noopener noreferrer">
+              {stat.source}
+            </a>
+          </div>
+        ))}
       </div>
-    </section>
+      <FlowTrack items={market.cycle} />
+      <p className="conclusion">{market.conclusion}</p>
+    </SectionShell>
   );
 }
 
 export function CauseSection() {
   const { cause } = siteContent;
   return (
-    <section className="section section--ivory" aria-labelledby="cause-heading">
-      <div className="container cause-grid">
+    <SectionShell tone="ivory" decos={["beam"]} labelledBy="cause-heading">
+      <div className="split-feature">
         <div>
+          <p className="section-label">Insight</p>
           <h2 id="cause-heading" className="section-heading">
-            {cause.title}
+            採用が難しい本当の理由は、
+            <br />
+            <em className="text-violet">会社が見えていない</em>こと。
           </h2>
-          <ul className="cause-list">
+          <ul className="check-list">
             {cause.points.map((point) => (
               <li key={point}>{point}</li>
             ))}
           </ul>
-          <p className="cause-body">{cause.body}</p>
+          <p className="feature-body">{cause.body}</p>
         </div>
         <img
           src="/assets/miruhaia/illustrations/miruhaia_illustration_visible-company.svg"
           alt="会社の魅力を可視化するイラスト"
-          className="cause-illust"
+          className="split-feature__art"
           loading="lazy"
         />
       </div>
-    </section>
+    </SectionShell>
   );
 }
 
 export function JobSeekerTrend() {
   const { jobSeeker } = siteContent;
   return (
-    <section className="section" aria-labelledby="jobseeker-heading">
-      <div className="container">
-        <h2 id="jobseeker-heading" className="section-heading">
-          {jobSeeker.title}
-        </h2>
-        <div className="jobseeker-grid">
-          <div className="card stat-card">
-            <span className="stat-card__value">{jobSeeker.stat}</span>
-            <span className="stat-card__label">{jobSeeker.statLabel}</span>
-            <span className="stat-card__source">
-              出典：
-              <a href={jobSeeker.sourceUrl} target="_blank" rel="noopener noreferrer">
-                {jobSeeker.source}
-              </a>
-            </span>
-          </div>
-          <div className="flow-row">
-            {jobSeeker.flow.map((step, i) => (
-              <span key={step}>
-                <span className="flow-row__item">{step}</span>
-                {i < jobSeeker.flow.length - 1 && <span className="flow-row__arrow">→</span>}
-              </span>
-            ))}
+    <SectionShell tone="violet" decos={["orbit"]} labelledBy="jobseeker-heading">
+      <div className="jobseeker-layout">
+        <div>
+          <p className="section-label">Trend</p>
+          <h2 id="jobseeker-heading" className="section-heading">
+            {jobSeeker.title}
+          </h2>
+          <div className="mega-stat">
+            <span className="mega-stat__num">{jobSeeker.stat}</span>
+            <span className="mega-stat__label">{jobSeeker.statLabel}</span>
+            <a className="mega-stat__source" href={jobSeeker.sourceUrl} target="_blank" rel="noopener noreferrer">
+              {jobSeeker.source}
+            </a>
           </div>
         </div>
-        <p className="conclusion">{jobSeeker.conclusion}</p>
+        <img
+          className="jobseeker-layout__art"
+          src="/assets/miruhaia/illustrations/miruhaia_illustration_growth-spotlight.svg"
+          alt=""
+          loading="lazy"
+        />
       </div>
-    </section>
+      <FlowTrack items={jobSeeker.flow} highlightLast />
+      <p className="conclusion">{jobSeeker.conclusion}</p>
+    </SectionShell>
   );
 }
 
 export function RoleComparison() {
   const { roles } = siteContent;
   return (
-    <section className="section section--ivory" aria-labelledby="roles-heading">
-      <div className="container">
-        <h2 id="roles-heading" className="section-heading">
-          {roles.title}
-        </h2>
-        <div className="card-grid card-grid--2">
-          {roles.items.map((item) => (
-            <div key={item.label} className="card role-card">
-              <h3>{item.label}</h3>
-              <p>{item.text}</p>
-            </div>
-          ))}
-        </div>
-        <p className="conclusion">{roles.conclusion}</p>
+    <SectionShell tone="white" labelledBy="roles-heading">
+      <p className="section-label">Compare</p>
+      <h2 id="roles-heading" className="section-heading">
+        {roles.title}
+      </h2>
+      <div className="role-duo">
+        {roles.items.map((item, i) => (
+          <div key={item.label} className={`role-duo__item role-duo__item--${i}`}>
+            <span className="role-duo__label">{item.label}</span>
+            <p>{item.text}</p>
+          </div>
+        ))}
       </div>
-    </section>
+      <p className="conclusion">{roles.conclusion}</p>
+    </SectionShell>
   );
 }
 
 export function SolutionSection() {
   const { solution } = siteContent;
   return (
-    <section id="features" className="section section--pale" aria-labelledby="solution-heading">
-      <div className="container solution-grid">
+    <SectionShell id="features" tone="spotlight" decos={["brackets", "wave"]} labelledBy="solution-heading">
+      <div className="solution-layout">
         <div>
+          <p className="section-label">Solution</p>
           <h2 id="solution-heading" className="section-heading">
-            <span className="section-heading__accent">{solution.title}</span>
+            <span className="spot">ミルハイア</span>は、会社のリアルを
+            <br />
+            ショート動画で可視化します。
           </h2>
-          <div className="card-grid card-grid--3">
+          <div className="promise-row">
             {solution.roles.map((role) => (
-              <div key={role.title} className="card solution-role">
-                <h3>{role.title}</h3>
-                <p>{role.text}</p>
+              <div key={role.title} className="promise-chip">
+                <strong>{role.title}</strong>
+                <span>{role.text}</span>
               </div>
             ))}
           </div>
-          <p className="solution-body">{solution.body}</p>
+          <p className="feature-body">{solution.body}</p>
         </div>
         <img
           src="/assets/miruhaia/illustrations/miruhaia_illustration_short-video-recruiting.svg"
           alt="ショート動画採用支援のイラスト"
-          className="solution-illust"
+          className="solution-layout__art"
           loading="lazy"
         />
       </div>
-    </section>
+    </SectionShell>
   );
 }
 
 export function SupportScope() {
   const { support } = siteContent;
   return (
-    <section className="section" aria-labelledby="support-heading">
-      <div className="container">
-        <h2 id="support-heading" className="section-heading">
-          {support.title}
-        </h2>
-        <div className="support-timeline">
-          {support.steps.map((step, i) => (
-            <div key={step.label} className="support-step">
-              <div className="support-step__icon">
-                <img src={iconPath(step.icon)} alt="" width={40} height={40} />
-                <span className="support-step__num">{i + 1}</span>
-              </div>
-              <h3>{step.label}</h3>
-              <p>{step.text}</p>
-              {i < support.steps.length - 1 && <span className="support-step__arrow" aria-hidden="true">→</span>}
+    <SectionShell tone="ivory" decos={["grid"]} labelledBy="support-heading">
+      <p className="section-label">Scope</p>
+      <h2 id="support-heading" className="section-heading">
+        {support.title}
+      </h2>
+      <div className="support-rail">
+        {support.steps.map((step, i) => (
+          <div key={step.label} className="support-node">
+            <div className="support-node__icon">
+              <img src={iconPath(step.icon)} alt="" width={36} height={36} />
+              <span>{i + 1}</span>
             </div>
-          ))}
-        </div>
+            <h3>{step.label}</h3>
+            <p>{step.text}</p>
+          </div>
+        ))}
       </div>
-    </section>
+    </SectionShell>
   );
 }
 
 export function ContentFlow() {
   const { contentFlow } = siteContent;
   return (
-    <section className="section section--ivory" aria-labelledby="content-heading">
-      <div className="container">
-        <h2 id="content-heading" className="section-heading">
-          {contentFlow.title}
-        </h2>
-        <div className="category-tags">
-          {contentFlow.categories.map((cat) => (
-            <span key={cat} className="category-tags__item">
-              {cat}
-            </span>
-          ))}
-        </div>
-        <div className="flow-row" style={{ marginTop: 24 }}>
-          {contentFlow.funnel.map((step, i) => (
-            <span key={step}>
-              <span className="flow-row__item">{step}</span>
-              {i < contentFlow.funnel.length - 1 && <span className="flow-row__arrow">→</span>}
-            </span>
-          ))}
-        </div>
-        <p className="conclusion">{contentFlow.note}</p>
+    <SectionShell tone="white" decos={["beam"]} labelledBy="content-heading">
+      <p className="section-label">Content</p>
+      <h2 id="content-heading" className="section-heading">
+        {contentFlow.title}
+      </h2>
+      <div className="category-cloud">
+        {contentFlow.categories.map((cat) => (
+          <span key={cat} className="category-cloud__item">
+            {cat}
+          </span>
+        ))}
       </div>
-    </section>
+      <FlowTrack items={contentFlow.funnel} highlightLast />
+      <p className="conclusion">{contentFlow.note}</p>
+    </SectionShell>
   );
 }
 
 export function OperationTeam() {
   const { operation } = siteContent;
   return (
-    <section className="section" aria-labelledby="operation-heading">
-      <div className="container operation-grid">
+    <SectionShell tone="violet" decos={["rings"]} labelledBy="operation-heading">
+      <div className="operation-layout">
         <div>
+          <p className="section-label">Team</p>
           <h2 id="operation-heading" className="section-heading">
             {operation.title}
           </h2>
-          <h3 className="operation-sub">お客様にお願いすること</h3>
-          <ul className="operation-list">
-            {operation.clientTasks.map((task) => (
-              <li key={task}>{task}</li>
-            ))}
-          </ul>
-          <h3 className="operation-sub">メリット</h3>
-          <ul className="operation-list">
-            {operation.benefits.map((b) => (
-              <li key={b}>{b}</li>
-            ))}
-          </ul>
+          <div className="duo-list">
+            <div>
+              <h3>お客様にお願いすること</h3>
+              <ul>
+                {operation.clientTasks.map((task) => (
+                  <li key={task}>{task}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3>メリット</h3>
+              <ul>
+                {operation.benefits.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
         <img
           src="/assets/miruhaia/illustrations/miruhaia_illustration_service-flow.svg"
           alt="支援フローのイラスト"
-          className="operation-illust"
+          className="operation-layout__art"
           loading="lazy"
         />
       </div>
-    </section>
+    </SectionShell>
   );
 }
 
 export function Differentiators() {
   const { differentiators } = siteContent;
   return (
-    <section className="section section--ivory" aria-labelledby="diff-heading">
-      <div className="container">
-        <h2 id="diff-heading" className="section-heading">
-          {differentiators.title}
-        </h2>
-        <div className="card-grid card-grid--3">
-          {differentiators.items.map((item) => (
-            <div key={item.title} className="card">
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </div>
-          ))}
+    <SectionShell tone="spotlight" decos={["orbit"]} labelledBy="diff-heading">
+      <div className="diff-layout">
+        <div>
+          <p className="section-label">Why us</p>
+          <h2 id="diff-heading" className="section-heading">
+            {differentiators.title}
+          </h2>
+          <div className="value-stack">
+            {differentiators.items.map((item, i) => (
+              <div key={item.title} className="value-stack__item">
+                <span className="value-stack__num">0{i + 1}</span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="feature-body">{differentiators.note}</p>
         </div>
-        <p className="conclusion">{differentiators.note}</p>
         <img
           src="/assets/miruhaia/illustrations/miruhaia_illustration_small-company-trial.svg"
           alt="中小企業向けの支援イラスト"
-          className="diff-illust"
+          className="diff-layout__art"
           loading="lazy"
         />
       </div>
-    </section>
+    </SectionShell>
   );
 }
 
 export function ProcessSteps() {
   const { process } = siteContent;
   return (
-    <section className="section" aria-labelledby="process-heading">
-      <div className="container">
-        <h2 id="process-heading" className="section-heading">
-          {process.title}
-        </h2>
-        <ol className="process-steps">
-          {process.steps.map((step, i) => (
-            <li key={step}>
-              <span className="process-steps__num">{i + 1}</span>
-              {step}
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
+    <SectionShell tone="white" labelledBy="process-heading">
+      <p className="section-label">Start</p>
+      <h2 id="process-heading" className="section-heading">
+        {process.title}
+      </h2>
+      <ol className="process-orbit">
+        {process.steps.map((step, i) => (
+          <li key={step}>
+            <span>{i + 1}</span>
+            {step}
+          </li>
+        ))}
+      </ol>
+    </SectionShell>
   );
 }
 
@@ -322,36 +334,35 @@ export function FaqAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="section section--ivory" aria-labelledby="faq-heading">
-      <div className="container">
-        <h2 id="faq-heading" className="section-heading">
-          {faq.title}
-        </h2>
-        <div className="faq-list">
-          {faq.items.map((item, index) => {
-            const isOpen = openIndex === index;
-            const panelId = `faq-panel-${index}`;
-            return (
-              <div key={item.q} className="faq-item">
-                <button
-                  type="button"
-                  className="faq-item__trigger"
-                  aria-expanded={isOpen}
-                  aria-controls={panelId}
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                >
-                  {item.q}
-                  <span aria-hidden="true">{isOpen ? "−" : "+"}</span>
-                </button>
-                <div id={panelId} className={`faq-item__panel ${isOpen ? "faq-item__panel--open" : ""}`} hidden={!isOpen}>
-                  <p>{item.a}</p>
-                </div>
+    <SectionShell id="faq" tone="ivory" decos={["grid"]} labelledBy="faq-heading">
+      <p className="section-label">FAQ</p>
+      <h2 id="faq-heading" className="section-heading">
+        {faq.title}
+      </h2>
+      <div className="faq-list">
+        {faq.items.map((item, index) => {
+          const isOpen = openIndex === index;
+          const panelId = `faq-panel-${index}`;
+          return (
+            <div key={item.q} className={`faq-item ${isOpen ? "faq-item--open" : ""}`}>
+              <button
+                type="button"
+                className="faq-item__trigger"
+                aria-expanded={isOpen}
+                aria-controls={panelId}
+                onClick={() => setOpenIndex(isOpen ? null : index)}
+              >
+                {item.q}
+                <span aria-hidden="true">{isOpen ? "−" : "+"}</span>
+              </button>
+              <div id={panelId} className="faq-item__panel" hidden={!isOpen}>
+                <p>{item.a}</p>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
-    </section>
+    </SectionShell>
   );
 }
 
@@ -369,18 +380,25 @@ export function ContactCta() {
   };
 
   return (
-    <section id="contact" className="section contact" aria-labelledby="contact-heading">
-      <div className="container contact__grid">
-        <div>
+    <SectionShell id="contact" tone="violet" decos={["beam", "rings"]} labelledBy="contact-heading">
+      <div className="contact-layout">
+        <div className="contact-copy">
+          <p className="section-label">Contact</p>
           <h2 id="contact-heading" className="section-heading">
             {contact.title}
           </h2>
           <a href="#contact-form" className="btn btn--primary">
             {contact.cta}
           </a>
+          <img
+            className="contact-copy__photo"
+            src="/assets/miruhaia/photos/employee-working-laptop-4x5.jpg"
+            alt=""
+            loading="lazy"
+          />
         </div>
 
-        <form id="contact-form" className="contact-form card" onSubmit={handleSubmit} noValidate>
+        <form id="contact-form" className="contact-form" onSubmit={handleSubmit} noValidate>
           <div className="contact-form__field">
             <label htmlFor="company">会社名</label>
             <input id="company" name="company" type="text" required autoComplete="organization" />
@@ -416,7 +434,7 @@ export function ContactCta() {
           )}
         </form>
       </div>
-    </section>
+    </SectionShell>
   );
 }
 
@@ -427,11 +445,11 @@ export function Footer() {
         <img
           src="/assets/miruhaia/logo/miruhaia_logo_primary_outlined.svg"
           alt="ミルハイア"
-          width={120}
-          height={36}
+          width={130}
+          height={38}
         />
         <p className="footer__brand">{siteConfig.brandName}</p>
-        <p className="footer__company">運営：{siteConfig.companyName}</p>
+        <p className="footer__tagline">見える会社は、選ばれる。</p>
         <nav className="footer__nav" aria-label="フッターナビゲーション">
           {siteConfig.privacyPolicyUrl ? (
             <a href={siteConfig.privacyPolicyUrl}>プライバシーポリシー</a>
@@ -439,6 +457,7 @@ export function Footer() {
             <span className="footer__muted">プライバシーポリシー（準備中）</span>
           )}
           <a href="#contact">お問い合わせ</a>
+          <a href="#videos">動画事例</a>
         </nav>
         <p className="footer__copy">© {new Date().getFullYear()} {siteConfig.companyName}</p>
       </div>

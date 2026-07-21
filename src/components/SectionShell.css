@@ -1,0 +1,78 @@
+.shell {
+  position: relative;
+  padding-block: var(--section-space);
+  overflow: hidden;
+}
+
+.shell--ivory {
+  background: var(--color-ivory);
+}
+
+.shell--white {
+  background: var(--color-white);
+}
+
+.shell--violet {
+  background: linear-gradient(165deg, var(--color-violet-pale) 0%, var(--color-ivory) 55%, var(--color-white) 100%);
+}
+
+.shell--spotlight {
+  background:
+    radial-gradient(circle at 15% 20%, var(--color-yellow-glow), transparent 42%),
+    radial-gradient(circle at 85% 80%, rgba(96, 81, 200, 0.12), transparent 45%),
+    var(--color-ivory);
+}
+
+.shell__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.shell__deco {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
+
+.shell__deco--rings {
+  top: -8%;
+  right: -6%;
+  width: min(42vw, 320px);
+  opacity: 0.55;
+}
+
+.shell__deco--wave {
+  bottom: -12%;
+  left: -8%;
+  width: min(50vw, 420px);
+  opacity: 0.35;
+}
+
+.shell__deco--orbit {
+  top: 12%;
+  left: -4%;
+  width: min(36vw, 260px);
+  opacity: 0.4;
+}
+
+.shell__deco--beam {
+  top: 8%;
+  right: 4%;
+  width: min(28vw, 200px);
+  opacity: 0.45;
+}
+
+.shell__deco--grid {
+  bottom: 6%;
+  right: 2%;
+  width: min(32vw, 240px);
+  opacity: 0.25;
+}
+
+.shell__deco--brackets {
+  top: 50%;
+  left: 50%;
+  width: min(90vw, 900px);
+  transform: translate(-50%, -50%);
+  opacity: 0.12;
+}

@@ -1,5 +1,6 @@
 import { siteContent } from "../content/siteContent";
 import { isCampaignActive, siteConfig } from "../config/siteConfig";
+import { SectionShell } from "./SectionShell";
 import "./PlanCards.css";
 
 function formatYen(amount: number): string {
@@ -11,61 +12,65 @@ export function PlanCards() {
   const campaignActive = isCampaignActive();
 
   return (
-    <section id="pricing" className="section" aria-labelledby="pricing-heading">
-      <div className="container">
-        <h2 id="pricing-heading" className="section-heading">
-          {pricing.title}
-        </h2>
+    <SectionShell id="pricing" tone="white" decos={["orbit", "wave"]} labelledBy="pricing-heading">
+      <p className="section-label">Pricing</p>
+      <h2 id="pricing-heading" className="section-heading">
+        {pricing.title}
+      </h2>
 
-        <div className="card-grid card-grid--3 plan-grid">
-          {pricing.plans.map((plan) => (
-            <article
-              key={plan.id}
-              className={`card plan-card ${"featured" in plan && plan.featured ? "plan-card--featured" : ""}`}
-            >
-              {"featured" in plan && plan.featured && <span className="plan-card__badge">おすすめ</span>}
-              <h3 className="plan-card__name">{plan.name}</h3>
-              <p className="plan-card__price">
-                月額<span>{formatYen(plan.monthlyYen)}</span>
-                {siteConfig.taxLabel && <small>{siteConfig.taxLabel}</small>}
-              </p>
-              <ul className="plan-card__features">
+      <div className="plan-stack">
+        {pricing.plans.map((plan) => {
+          const featured = "featured" in plan && plan.featured;
+          return (
+            <article key={plan.id} className={`plan-tile ${featured ? "plan-tile--featured" : ""}`}>
+              {featured && <span className="plan-tile__badge">おすすめ</span>}
+              <div className="plan-tile__head">
+                <h3>{plan.name}</h3>
+                <p className="plan-tile__price">
+                  月額
+                  <strong>{formatYen(plan.monthlyYen)}</strong>
+                  {siteConfig.taxLabel && <small>{siteConfig.taxLabel}</small>}
+                </p>
+              </div>
+              <ul>
                 {plan.features.map((feature) => (
                   <li key={feature}>{feature}</li>
                 ))}
               </ul>
-              <p className="plan-card__note">{pricing.videoQuantityNote}</p>
+              <p className="plan-tile__note">{pricing.videoQuantityNote}</p>
             </article>
-          ))}
-        </div>
+          );
+        })}
+      </div>
 
-        {campaignActive && (
-          <aside className="campaign-panel" aria-label="初期費用キャンペーン">
+      {campaignActive && (
+        <aside className="campaign-banner">
+          <img src="/assets/miruhaia/icons/miruhaia_icon_calendar-contract.svg" alt="" width={32} height={32} />
+          <div>
             <h3>初期費用キャンペーン</h3>
             <p>
               通常 {formatYen(siteConfig.campaign.regularSetupFeeYen)} →{" "}
               <strong>{formatYen(siteConfig.campaign.campaignSetupFeeYen)}</strong>
             </p>
-            <p className="campaign-panel__reason">{siteConfig.campaign.reason}</p>
-          </aside>
-        )}
+          </div>
+        </aside>
+      )}
 
-        <div className="pricing-cta">
-          <a href="#contact" className="btn btn--primary">
-            {pricing.cta}
-          </a>
-        </div>
-
-        <div className="addons">
-          <h3>{pricing.addonsTitle}</h3>
-          <ul className="addons__list">
-            {pricing.addons.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <p className="addons__note">料金・条件は個別見積もりまたはご相談となります。</p>
-        </div>
+      <div className="pricing-cta">
+        <a href="#contact" className="btn btn--primary">
+          {pricing.cta}
+        </a>
       </div>
-    </section>
+
+      <div className="addons-block">
+        <h3>{pricing.addonsTitle}</h3>
+        <div className="addons-block__tags">
+          {pricing.addons.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+        <p>料金・条件は個別見積もりまたはご相談となります。</p>
+      </div>
+    </SectionShell>
   );
 }

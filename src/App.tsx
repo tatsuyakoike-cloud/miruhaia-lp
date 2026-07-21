@@ -19,6 +19,7 @@ import {
   Footer,
 } from "./components/Sections";
 import { siteConfig } from "./config/siteConfig";
+import { siteContent } from "./content/siteContent";
 
 function StructuredData() {
   const data = {
@@ -66,6 +67,11 @@ export default function App() {
         <ContactCta />
       </main>
       <Footer />
+      <div className="mobile-cta">
+        <a href="#contact" className="btn btn--primary">
+          {siteContent.contact.cta}
+        </a>
+      </div>
     </>
   );
 }
