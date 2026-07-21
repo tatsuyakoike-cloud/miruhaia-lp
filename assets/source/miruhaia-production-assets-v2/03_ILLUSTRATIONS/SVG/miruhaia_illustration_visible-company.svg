@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" fill="none">
+  <title>見える会社 — 窓とスポットライト</title>
+  <defs>
+<linearGradient id="vcv" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B8B0F0"/><stop offset="1" stop-color="#6051C8"/></linearGradient>
+<linearGradient id="vcy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF3B4"/><stop offset="1" stop-color="#FFD84D"/></linearGradient>
+</defs>
+    <path d="M55 625 256 176h532l117 449H55Z" fill="#EEEAFE" opacity=".72"/>
+    <path d="M116 619 328 144h372l143 475H116Z" fill="url(#vcy)" opacity=".34"/>
+    <rect x="278" y="150" width="432" height="468" rx="32" fill="white" stroke="#6051C8" stroke-width="12"/>
+    <path d="M494 150v468M278 326h432" stroke="#D9D5F1" stroke-width="10"/>
+    <rect x="326" y="202" width="121" height="80" rx="15" fill="#EEEAFE"/>
+    <rect x="541" y="202" width="121" height="80" rx="15" fill="#FFF3B4"/>
+    <rect x="326" y="374" width="121" height="94" rx="15" fill="#FFF3B4"/>
+    <path d="M545 469c13-71 45-106 95-106s82 35 95 106" fill="url(#vcv)"/>
+    <circle cx="640" cy="333" r="48" fill="#F2C9AA"/>
+    <path d="M601 322c8-49 70-62 92-17-15-8-28-10-43-6-20 5-31 17-49 23Z" fill="#12152F"/>
+    <circle cx="770" cy="130" r="64" fill="#FFD84D"/><circle cx="770" cy="130" r="102" stroke="#FFD84D" stroke-width="6" opacity=".45"/>
+    <path d="M124 620h722" stroke="#12152F" stroke-width="14" stroke-linecap="round"/>
+    <path d="M112 167h82v82" stroke="#6051C8" stroke-width="12" stroke-linecap="round"/><path d="M847 539v82h-82" stroke="#FFD84D" stroke-width="12" stroke-linecap="round"/>
+  
+</svg>

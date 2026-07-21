@@ -1,0 +1,37 @@
+{
+  "hero": {
+    "headline": "見える会社は、選ばれる。",
+    "subheadline": "ショート動画で、会社のリアルを採用力に変える。",
+    "body": "企画・撮影・編集・投稿・分析まで。採用のためのショート動画運用を、専任チームがまるごと支援します。",
+    "primaryCta": "無料で相談する",
+    "secondaryCta": "動画の品質を見る"
+  },
+  "plans": [
+    {
+      "id": "ai",
+      "name": "AI動画生成プラン",
+      "monthlyYen": 150000,
+      "features": ["サポートは必要最小限", "AIを活用して動画を量産", "撮影負担を抑えて始めたい企業向け"],
+      "contractPeriod": null,
+      "videoQuantity": null
+    },
+    {
+      "id": "hybrid",
+      "name": "素材撮影・単発撮影プラン",
+      "monthlyYen": 200000,
+      "features": ["基本は初回のみ撮影", "撮影素材と人物素材を組み合わせて展開", "AI動画もハイブリッドで活用"],
+      "contractPeriod": null,
+      "videoQuantity": null
+    },
+    {
+      "id": "regular",
+      "name": "定期撮影プラン",
+      "monthlyYen": 300000,
+      "features": ["12か月契約", "2か月に1回のペースで撮影", "計8本の動画を投稿"],
+      "contractPeriodMonths": 12,
+      "shootingFrequency": "2か月に1回",
+      "videoQuantity": 8,
+      "videoQuantityPeriod": null
+    }
+  ]
+}

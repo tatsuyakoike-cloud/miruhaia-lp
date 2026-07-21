@@ -1,0 +1,19 @@
+:root {
+  --miruhaia-ivory: #FAF8F3;
+  --miruhaia-white: #FFFFFF;
+  --miruhaia-iris-violet: #6051C8;
+  --miruhaia-iris-violet-dark: #493AAE;
+  --miruhaia-iris-violet-light: #B8B0F0;
+  --miruhaia-iris-violet-pale: #EEEAFE;
+  --miruhaia-spotlight-yellow: #FFD84D;
+  --miruhaia-spotlight-yellow-pale: #FFF3B4;
+  --miruhaia-business-navy: #12152F;
+  --miruhaia-connected-red: #D64B4B;
+  --miruhaia-muted: #62677E;
+  --miruhaia-font: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --miruhaia-radius-sm: 14px;
+  --miruhaia-radius-md: 24px;
+  --miruhaia-radius-lg: 40px;
+  --miruhaia-shadow-soft: 0 18px 50px rgba(18, 21, 47, 0.12);
+  --miruhaia-section-space: clamp(72px, 10vw, 144px);
+}

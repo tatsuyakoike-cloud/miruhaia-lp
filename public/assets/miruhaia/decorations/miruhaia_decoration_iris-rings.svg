@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none">
+  <title>虹彩リング</title>
+  <g transform="translate(300 300)" fill="none" stroke="#6051C8"><circle r="220" stroke-width="8" opacity="0.16"/><circle r="170" stroke-width="7" opacity="0.26"/><circle r="120" stroke-width="6" opacity="0.36"/><circle r="70" stroke-width="5" opacity="0.4600000000000001"/></g><circle cx="300" cy="300" r="18" fill="#6051C8"/><circle cx="443" cy="132" r="34" fill="#FFD84D"/>
+</svg>

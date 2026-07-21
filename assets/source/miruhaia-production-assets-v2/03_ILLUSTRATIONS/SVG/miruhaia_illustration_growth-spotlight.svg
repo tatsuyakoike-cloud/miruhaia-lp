@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" fill="none">
+  <title>成長に光を当てる</title>
+  <defs>
+<linearGradient id="gsv" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B8B0F0"/><stop offset="1" stop-color="#6051C8"/></linearGradient>
+<linearGradient id="gsy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF3B4"/><stop offset="1" stop-color="#FFD84D"/></linearGradient>
+</defs>
+    <path d="M82 660 360 68h174L878 660H82Z" fill="url(#gsy)" opacity=".52"/>
+    <path d="M150 612h660" stroke="#12152F" stroke-width="14" stroke-linecap="round"/>
+    <path d="M231 538 373 396l118 63 190-236" fill="none" stroke="#6051C8" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="m627 223 62-10-12 61" fill="none" stroke="#6051C8" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(492 463)"><circle cy="-116" r="45" fill="#F2C9AA"/><path d="M-76 74c9-120 31-174 76-174S67-46 76 74" fill="url(#gsv)"/><path d="M-43-126c8-46 68-55 85-14-28-12-53-6-85 14Z" fill="#12152F"/><path d="M-76-39-160 36M76-39l133-130" stroke="#12152F" stroke-width="18" stroke-linecap="round"/></g>
+    <circle cx="708" cy="181" r="46" fill="#FFD84D"/><circle cx="708" cy="181" r="85" stroke="#FFD84D" stroke-width="7" opacity=".5"/>
+    <path d="M110 162h90v90M850 530v90h-90" stroke="#6051C8" stroke-width="12" stroke-linecap="round"/>
+  
+</svg>

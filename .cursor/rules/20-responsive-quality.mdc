@@ -1,0 +1,15 @@
+---
+description: Responsive, accessible, high-performance, video, SEO, testing, and GitHub Pages requirements for the Miruhaia LP
+globs: "src/**/*, public/**/*, index.html, vite.config.*, .github/workflows/*, package.json"
+alwaysApply: false
+---
+
+- Follow `@docs/RESPONSIVE_TECH_SPEC.md` and `@docs/LATEST_LP_PATTERNS_2026.md`.
+- Use one responsive URL and keep primary content equivalent on desktop and mobile.
+- Test 1440, 1024, 768, 390, 375, and 320 px with no horizontal page overflow.
+- Use semantic HTML, visible focus, 44 px touch targets, meaningful alt text, keyboard controls, and reduced-motion support.
+- Reserve media dimensions to prevent CLS. Prioritize only the LCP image and avoid loading all videos initially.
+- Video uses controls, playsinline, poster, preload metadata, stable aspect ratio, no autoplay audio, and permission metadata.
+- Target LCP <= 2.5 s, INP <= 200 ms, CLS <= 0.1 at the 75th percentile.
+- Run lint, type check, tests, production build, internal-link/asset checks, and a real browser visual pass.
+- For Vite project Pages, set the repository-aware base path and use a GitHub Actions deployment workflow.

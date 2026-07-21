@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "Noto Sans JP";
+  src: url("/assets/miruhaia/fonts/NotoSansJP-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans JP";
+  src: url("/assets/miruhaia/fonts/NotoSansJP-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-ivory: #faf8f3;
+  --color-white: #ffffff;
+  --color-violet: #6051c8;
+  --color-violet-dark: #493aae;
+  --color-violet-light: #b8b0f0;
+  --color-violet-pale: #eeeafe;
+  --color-yellow: #ffd84d;
+  --color-yellow-pale: #fff3b4;
+  --color-navy: #12152f;
+  --color-red: #d64b4b;
+  --color-muted: #62677e;
+  --font-ja: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --radius-sm: 14px;
+  --radius-md: 24px;
+  --radius-lg: 40px;
+  --shadow-soft: 0 18px 50px rgba(18, 21, 47, 0.12);
+  --section-space: clamp(72px, 10vw, 144px);
+  --content-max: 1200px;
+  --header-height: 72px;
+}

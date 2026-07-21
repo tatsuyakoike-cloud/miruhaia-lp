@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" fill="none">
+  <title>ショート動画採用 — 縦型フレーム</title>
+  <defs>
+<linearGradient id="svv" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B8B0F0"/><stop offset="1" stop-color="#6051C8"/></linearGradient>
+<linearGradient id="svy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF3B4"/><stop offset="1" stop-color="#FFD84D"/></linearGradient>
+</defs>
+    <circle cx="480" cy="360" r="290" fill="#EEEAFE" opacity=".6"/>
+    <g transform="translate(120 96) rotate(-7 150 250)"><rect width="286" height="510" rx="38" fill="white" stroke="#12152F" stroke-width="12"/><rect x="21" y="57" width="244" height="370" rx="24" fill="url(#svv)"/><circle cx="143" cy="234" r="64" fill="#FFF3B4"/><path d="m126 196 72 45-72 45v-90Z" fill="#6051C8"/><path d="M60 462h166" stroke="#D9D5F1" stroke-width="12" stroke-linecap="round"/><circle cx="104" cy="462" r="12" fill="#FFD84D"/></g>
+    <g transform="translate(520 58) rotate(7 150 250)"><rect width="286" height="510" rx="38" fill="white" stroke="#6051C8" stroke-width="12"/><rect x="21" y="57" width="244" height="370" rx="24" fill="#FFF3B4"/><circle cx="143" cy="200" r="62" fill="#F2C9AA"/><path d="M67 381c12-92 36-132 76-132s64 40 76 132" fill="url(#svv)"/><path d="M98 187c7-63 87-73 104-17-27-13-67-2-104 17Z" fill="#12152F"/><path d="M60 462h166" stroke="#D9D5F1" stroke-width="12" stroke-linecap="round"/><circle cx="178" cy="462" r="12" fill="#FFD84D"/></g>
+    <path d="M431 270h71M466 235v71" stroke="#FFD84D" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="855" cy="123" r="36" fill="#FFD84D"/><circle cx="83" cy="571" r="24" fill="#6051C8"/>
+  
+</svg>

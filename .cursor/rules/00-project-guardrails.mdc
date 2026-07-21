@@ -1,0 +1,13 @@
+---
+alwaysApply: true
+---
+
+- Read `@CLAUDE.md` and `@docs/OPEN_ITEMS.md` before claiming the page is public-ready.
+- Preserve existing user changes and inspect the repository before choosing a framework.
+- Use the official brand `ミルハイア by CONNECTED MATERIAL` and `見える会社は、選ばれる。`.
+- Never publish old TrePro/TREPRO/TREND PRODUCE/TLPC branding.
+- Do not invent contact details, tax labels, plan quantities, contract terms, campaign conditions, statistics, or publication permission.
+- Do not use slide screenshots as LP sections; render all copy, prices, and CTA labels as HTML text.
+- Use only approved real videos. Exclude 砂建 and highly exposed advertising examples.
+- Keep unresolved facts in configuration and report them as launch blockers.
+- Do not perform destructive Git operations or publish without authorization.

@@ -1,0 +1,35 @@
+export type VideoSample = {
+  id: string;
+  title: string;
+  category: string;
+  src: string;
+  poster: string;
+  permissionStatus: "pending" | "confirmed";
+};
+
+export const videoSamples: VideoSample[] = [
+  {
+    id: "interview",
+    title: "社員インタビュー",
+    category: "人柄・入社理由・仕事の魅力",
+    src: "/videos/video-01.mp4",
+    poster: "/videos/posters/video-01.jpg",
+    permissionStatus: "pending",
+  },
+  {
+    id: "work",
+    title: "仕事・現場紹介",
+    category: "1日の流れ・業務内容・技術",
+    src: "/videos/video-02.mp4",
+    poster: "/videos/posters/video-02.jpg",
+    permissionStatus: "pending",
+  },
+  {
+    id: "culture",
+    title: "会社・チーム紹介",
+    category: "職場の雰囲気・関係性・文化",
+    src: "/videos/video-03.mp4",
+    poster: "/videos/posters/video-03.jpg",
+    permissionStatus: "pending",
+  },
+];

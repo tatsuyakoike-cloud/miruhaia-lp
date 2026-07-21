@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="240" viewBox="0 0 1200 240" fill="none">
+  <title>ミルハイア 白文字ロゴ 濃色背景専用</title>
+  <path d="M182 120A82 82 0 1 1 18 120A82 82 0 1 1 182 120ZM166 91A40 40 0 1 1 86 91A40 40 0 1 1 166 91Z" fill="#8173EB" fill-rule="evenodd"/>
+  <circle cx="157" cy="48" r="22" fill="#FFD84D"/>
+  <g font-family="Noto Sans JP, sans-serif" fill="#FFFFFF">
+    <text x="218" y="108" font-size="86" font-weight="700" letter-spacing="7">ミルハイア</text>
+    <text x="224" y="164" font-size="21" font-weight="700" letter-spacing="10">M I R U H A I A</text>
+    <text x="724" y="160" font-size="18" font-weight="400" letter-spacing="1.1">by CONNECTED MATERIAL</text>
+  </g>
+  <circle cx="1059" cy="153" r="5.5" fill="#D64B4B"/>
+</svg>

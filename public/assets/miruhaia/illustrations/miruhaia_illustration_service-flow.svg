@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" fill="none">
+  <title>サービスフロー — 企画・撮影・編集・分析</title>
+  <defs>
+<linearGradient id="sfv" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B8B0F0"/><stop offset="1" stop-color="#6051C8"/></linearGradient>
+<linearGradient id="sfy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF3B4"/><stop offset="1" stop-color="#FFD84D"/></linearGradient>
+</defs>
+    <path d="M120 307h960" stroke="#D9D5F1" stroke-width="14" stroke-linecap="round"/>
+    <path d="m1012 265 68 42-68 42" fill="none" stroke="#FFD84D" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(178 307)"><circle r="122" fill="#EEEAFE"/><circle r="110" fill="white" stroke="#6051C8" stroke-width="8"/><path d="M-40 15a54 54 0 1 1 93 36c-13 14-17 24-17 39h-55c0-15-4-25-17-39A54 54 0 0 1-40 15ZM-16 113h52" fill="none" stroke="#6051C8" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="76" cy="-82" r="18" fill="#FFD84D"/></g><g transform="translate(430 307)"><circle r="122" fill="#FFF3B4"/><circle r="110" fill="white" stroke="#6051C8" stroke-width="8"/><path d="M-66-39h132a24 24 0 0 1 24 24v99a24 24 0 0 1-24 24H-66A24 24 0 0 1-90 84v-99a24 24 0 0 1 24-24Zm28 0 15-29h54l15 29ZM0-7a39 39 0 1 0 0 78 39 39 0 0 0 0-78Z" fill="none" stroke="#6051C8" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="76" cy="-82" r="18" fill="#FFD84D"/></g><g transform="translate(682 307)"><circle r="122" fill="#EEEAFE"/><circle r="110" fill="white" stroke="#6051C8" stroke-width="8"/><path d="M-78-55 80 82M-76 82 82-55M-112-74a34 34 0 1 0 68 0 34 34 0 0 0-68 0ZM-112 101a34 34 0 1 0 68 0 34 34 0 0 0-68 0Z" fill="none" stroke="#6051C8" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="76" cy="-82" r="18" fill="#FFD84D"/></g><g transform="translate(934 307)"><circle r="122" fill="#FFF3B4"/><circle r="110" fill="white" stroke="#6051C8" stroke-width="8"/><path d="M-87 87V-78M-87 87H90M-48 87V25M1 87V-17M50 87v-93" fill="none" stroke="#6051C8" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="76" cy="-82" r="18" fill="#FFD84D"/></g>
+  
+</svg>

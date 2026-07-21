@@ -1,0 +1,9 @@
+通常使用するロゴです。
+
+優先順位
+1. miruhaia_logo_primary.ai - Illustratorで編集する場合
+2. miruhaia_logo_primary_outlined.svg - Illustrator / Figma / Webで使用する場合
+3. miruhaia_logo_primary.pdf - ベクターのまま共有・配置する場合
+4. miruhaia_logo_primary_transparent.png - Webや資料へ画像として配置する場合
+
+背景オブジェクトはありません。PNGは背景透過確認済みです。

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <title>会社・チーム</title>
+  
+<g fill="none" stroke="#6051C8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="76" r="31"/><circle cx="59" cy="101" r="24"/><circle cx="197" cy="101" r="24"/><path d="M78 218c4-57 20-86 50-86s46 29 50 86M27 205c3-38 13-61 32-61 10 0 19 6 25 17M229 205c-3-38-13-61-32-61-10 0-19 6-25 17"/></g>
+<circle cx="205" cy="48" r="13" fill="#FFD84D"/>
+</svg>

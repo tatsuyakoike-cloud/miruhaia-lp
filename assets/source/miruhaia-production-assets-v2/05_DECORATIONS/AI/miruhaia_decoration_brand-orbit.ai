@@ -1,0 +1,128 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Adobe Illustrator-compatible legacy vector
+%AI8_CreatorVersion: 8.0
+%AI8_RulerUnits: 1
+%%CreationDate: Sun Jul 19 11:31:10 2026
+%%Pages: 1
+%%DocumentData: Clean7Bit
+%%LanguageLevel: 2
+%%BoundingBox: 0 0 419 371
+%%EndComments
+%%BeginProlog
+50 dict begin
+/q { gsave } bind def
+/Q { grestore } bind def
+/cm { 6 array astore concat } bind def
+/w { setlinewidth } bind def
+/J { setlinecap } bind def
+/j { setlinejoin } bind def
+/M { setmiterlimit } bind def
+/d { setdash } bind def
+/m { moveto } bind def
+/l { lineto } bind def
+/c { curveto } bind def
+/h { closepath } bind def
+/re { exch dup neg 3 1 roll 5 3 roll moveto 0 rlineto
+      0 exch rlineto 0 rlineto closepath } bind def
+/S { stroke } bind def
+/f { fill } bind def
+/f* { eofill } bind def
+/n { newpath } bind def
+/W { clip } bind def
+/W* { eoclip } bind def
+/BT { } bind def
+/ET { } bind def
+/BDC { mark 3 1 roll /BDC pdfmark } bind def
+/EMC { mark /EMC pdfmark } bind def
+/cairo_store_point { /cairo_point_y exch def /cairo_point_x exch def } def
+/Tj { show currentpoint cairo_store_point } bind def
+/TJ {
+  {
+    dup
+    type /stringtype eq
+    { show } { -0.001 mul 0 cairo_font_matrix dtransform rmoveto } ifelse
+  } forall
+  currentpoint cairo_store_point
+} bind def
+/cairo_selectfont { cairo_font_matrix aload pop pop pop 0 0 6 array astore
+    cairo_font exch selectfont cairo_point_x cairo_point_y moveto } bind def
+/Tf { pop /cairo_font exch def /cairo_font_matrix where
+      { pop cairo_selectfont } if } bind def
+/Td { matrix translate cairo_font_matrix matrix concatmatrix dup
+      /cairo_font_matrix exch def dup 4 get exch 5 get cairo_store_point
+      /cairo_font where { pop cairo_selectfont } if } bind def
+/Tm { 2 copy 8 2 roll 6 array astore /cairo_font_matrix exch def
+      cairo_store_point /cairo_font where { pop cairo_selectfont } if } bind def
+/g { setgray } bind def
+/rg { setrgbcolor } bind def
+/d1 { setcachedevice } bind def
+/cairo_data_source {
+  CairoDataIndex CairoData length lt
+    { CairoData CairoDataIndex get /CairoDataIndex CairoDataIndex 1 add def }
+    { () } ifelse
+} def
+/cairo_flush_ascii85_file { cairo_ascii85_file status { cairo_ascii85_file flushfile } if } def
+/cairo_image { image cairo_flush_ascii85_file } def
+/cairo_imagemask { imagemask cairo_flush_ascii85_file } def
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+%%PageBoundingBox: 0 0 419 371
+%%EndPageSetup
+q 0 0 419 371 rectclip
+1 0 0 -1 0 371 cm q
+0.376471 0.317647 0.784314 rg
+6 w
+0 J
+0 j
+[] 0.0 d
+4 M q 1 0 0 1 0 0 cm
+411 185.16 m 411 234.039 319.668 273.66 207 273.66 c 94.332 273.66 3 234.039
+ 3 185.16 c 3 136.285 94.332 96.66 207 96.66 c 319.668 96.66 411 136.285
+ 411 185.16 c h
+411 185.16 m S Q
+5.196152 w
+q 0.57735 1 -1 0.57735 0 0 cm
+405.175 -75.072 m 405.174 -32.744 326.078 1.57 228.503 1.571 c 130.933 
+1.571 51.835 -32.745 51.835 -75.073 c 51.836 -117.401 130.932 -151.715 228.504
+ -151.718 c 326.077 -151.716 405.173 -117.402 405.175 -75.072 c h
+405.175 -75.072 m S Q
+5.196152 w
+q -0.57735 1 -1 -0.57735 0 0 cm
+225.908 -235.428 m 225.905 -193.098 146.81 -158.784 49.237 -158.782 c -48.335
+ -158.785 -127.431 -193.099 -127.432 -235.427 c -127.432 -277.755 -48.334
+ -312.071 49.236 -312.071 c 146.811 -312.07 225.907 -277.756 225.908 -235.428
+ c h
+225.908 -235.428 m S Q
+9.75 w
+q 1 0 0 1 0 0 cm
+252.75 185.16 m 252.75 210.43 232.266 230.91 207 230.91 c 181.734 230.91
+ 161.25 210.43 161.25 185.16 c 161.25 159.895 181.734 139.41 207 139.41 
+c 232.266 139.41 252.75 159.895 252.75 185.16 c h
+252.75 185.16 m S Q
+223.5 185.16 m 223.5 194.273 216.113 201.66 207 201.66 c 197.887 201.66
+ 190.5 194.273 190.5 185.16 c 190.5 176.047 197.887 168.66 207 168.66 c 
+216.113 168.66 223.5 176.047 223.5 185.16 c h
+223.5 185.16 m f
+1 0.847059 0.301961 rg
+418.5 185.16 m 418.5 197.172 408.762 206.91 396.75 206.91 c 384.738 206.91
+ 375 197.172 375 185.16 c 375 173.148 384.738 163.41 396.75 163.41 c 408.762
+ 163.41 418.5 173.148 418.5 185.16 c h
+418.5 185.16 m f
+0.376471 0.317647 0.784314 rg
+120 14.16 m 120 21.617 113.957 27.66 106.5 27.66 c 99.043 27.66 93 21.617
+ 93 14.16 c 93 6.707 99.043 0.66 106.5 0.66 c 113.957 0.66 120 6.707 120
+ 14.16 c h
+120 14.16 m f
+1 0.847059 0.301961 rg
+124.5 350.16 m 124.5 356.375 119.465 361.41 113.25 361.41 c 107.035 361.41
+ 102 356.375 102 350.16 c 102 343.949 107.035 338.91 113.25 338.91 c 119.465
+ 338.91 124.5 343.949 124.5 350.16 c h
+124.5 350.16 m f
+Q Q
+showpage
+%%Trailer
+end
+%%EOF

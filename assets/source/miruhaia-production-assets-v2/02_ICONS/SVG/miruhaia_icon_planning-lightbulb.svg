@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <title>企画・アイデア</title>
+  
+<g fill="none" stroke="#6051C8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><path d="M82 111a52 52 0 1 1 91 35c-14 15-18 24-18 37H101c0-13-4-22-18-37a52 52 0 0 1-1-35Z"/><path d="M103 205h50M111 226h34M128 25V9M53 55 41 43M203 55l12-12"/></g>
+<circle cx="205" cy="48" r="13" fill="#FFD84D"/>
+</svg>

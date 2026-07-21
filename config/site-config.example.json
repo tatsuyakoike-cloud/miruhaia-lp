@@ -1,0 +1,18 @@
+{
+  "brandName": "ミルハイア by CONNECTED MATERIAL",
+  "companyName": "CONNECTED MATERIAL",
+  "contactUrl": "",
+  "contactEmail": "",
+  "privacyPolicyUrl": "",
+  "canonicalUrl": "",
+  "taxLabel": "",
+  "analyticsId": "",
+  "campaign": {
+    "enabled": false,
+    "regularSetupFeeYen": 150000,
+    "campaignSetupFeeYen": 0,
+    "expiresAt": "2026-08-31T23:59:59+09:00",
+    "reason": "新ブランド立ち上げに伴う導入事例づくりへの協力",
+    "approved": false
+  }
+}

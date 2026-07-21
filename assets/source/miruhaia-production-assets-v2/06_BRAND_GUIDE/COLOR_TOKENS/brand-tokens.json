@@ -1,0 +1,43 @@
+{
+  "brand": "ミルハイア by CONNECTED MATERIAL",
+  "tagline": "見える会社は、選ばれる。",
+  "colors": {
+    "ivory": "#FAF8F3",
+    "white": "#FFFFFF",
+    "violet": "#6051C8",
+    "violetDark": "#493AAE",
+    "violetLight": "#B8B0F0",
+    "violetPale": "#EEEAFE",
+    "yellow": "#FFD84D",
+    "yellowPale": "#FFF3B4",
+    "navy": "#12152F",
+    "muted": "#62677E",
+    "red": "#D64B4B",
+    "line": "#D9D5F1"
+  },
+  "ratio": {
+    "ivoryWhite": 60,
+    "violet": 25,
+    "yellow": 10,
+    "navyBlack": 5
+  },
+  "type": {
+    "family": "Noto Sans JP",
+    "weights": [
+      400,
+      700
+    ]
+  },
+  "usage": {
+    "cta": {
+      "background": "#FFD84D",
+      "text": "#12152F"
+    },
+    "photo": "実在社員の自然な表情",
+    "avoid": [
+      "黒背景＋ネオン",
+      "モデル感の強い人物",
+      "紫一色"
+    ]
+  }
+}

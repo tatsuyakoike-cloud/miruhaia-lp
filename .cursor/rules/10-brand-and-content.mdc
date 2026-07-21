@@ -1,0 +1,14 @@
+---
+description: Miruhaia visual design, Japanese copy, content hierarchy, plans, and approved asset usage for the recruitment short-video LP
+globs: "src/**/*.tsx, src/**/*.ts, src/**/*.css, src/**/*.json, public/**/*, index.html"
+alwaysApply: false
+---
+
+- Follow `@docs/LP_CONTENT_SPEC.md`, `@docs/ASSET_MAP.md`, and `@docs/DESIGN_SYSTEM.md`.
+- Design for Japanese small-business owners with low SNS/Web literacy.
+- Keep one message per section, short headings, up to three bullets where possible, and generous whitespace.
+- Dominant surfaces are white/ivory; violet is the main color; yellow is the accent; red is a tiny brand detail.
+- Avoid black neon sections, excessive gradients, dense comparison tables, fake social UI, and long text over photos.
+- Use the primary outlined SVG logo. Do not redraw or generate a replacement logo.
+- Implement the exact three-plan facts from `@config/site-content.json`; do not fill missing quantities.
+- Keep facts, interpretations, and service claims visually and verbally separate.

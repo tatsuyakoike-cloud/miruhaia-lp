@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <title>分析・改善</title>
+  
+<g fill="none" stroke="#6051C8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><path d="M38 213V49M38 213h184"/><rect x="67" y="143" width="27" height="70" rx="7"/><rect x="116" y="105" width="27" height="108" rx="7"/><rect x="165" y="64" width="27" height="149" rx="7"/><path d="m61 114 54-39 39 13 55-50"/></g>
+<circle cx="205" cy="48" r="13" fill="#FFD84D"/>
+</svg>

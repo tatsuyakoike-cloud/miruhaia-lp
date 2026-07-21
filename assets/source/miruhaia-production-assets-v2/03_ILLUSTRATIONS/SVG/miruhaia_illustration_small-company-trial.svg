@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" fill="none">
+  <title>中小企業のスモールスタート</title>
+  <defs>
+<linearGradient id="scv" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B8B0F0"/><stop offset="1" stop-color="#6051C8"/></linearGradient>
+<linearGradient id="scy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF3B4"/><stop offset="1" stop-color="#FFD84D"/></linearGradient>
+</defs>
+    <ellipse cx="478" cy="615" rx="360" ry="44" fill="#EEEAFE"/>
+    <rect x="142" y="232" width="474" height="365" rx="28" fill="white" stroke="#12152F" stroke-width="12"/>
+    <path d="m115 264 95-145h345l89 145H115Z" fill="url(#scv)"/>
+    <path d="M118 264h523" stroke="#12152F" stroke-width="12"/>
+    <rect x="209" y="331" width="140" height="124" rx="18" fill="#EEEAFE"/><rect x="404" y="331" width="145" height="266" rx="18" fill="#FFF3B4"/>
+    <g transform="translate(713 369) rotate(14)"><path d="M0-126c78 45 112 117 79 208L0 154-79 82C-112-9-78-81 0-126Z" fill="white" stroke="#6051C8" stroke-width="12"/><circle cy="-30" r="36" fill="#FFD84D"/><path d="m-70 71-62 58 83 7M70 71l62 58-83 7" fill="#EEEAFE" stroke="#6051C8" stroke-width="10" stroke-linejoin="round"/><path d="M0 153c24 33 21 79 0 111-21-32-24-78 0-111Z" fill="#FFD84D"/></g>
+    <circle cx="104" cy="103" r="34" fill="#FFD84D"/><circle cx="832" cy="144" r="26" fill="#6051C8"/>
+  
+</svg>
