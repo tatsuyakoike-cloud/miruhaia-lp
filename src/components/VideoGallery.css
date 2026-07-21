@@ -8,7 +8,6 @@
 .video-section__illust {
   width: min(100%, 280px);
   margin-inline: auto;
-  opacity: 0.9;
 }
 
 .video-gallery__controls {
@@ -41,7 +40,6 @@
   color: var(--color-navy);
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 8px 20px var(--color-yellow-glow);
 }
 
 .video-gallery {
@@ -56,24 +54,11 @@
     scroll-snap-type: x mandatory;
     gap: 16px;
     padding-bottom: 8px;
-    -webkit-overflow-scrolling: touch;
   }
 
   .video-gallery .video-card {
     flex: 0 0 min(78vw, 300px);
     scroll-snap-align: center;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .video-gallery {
-    grid-template-columns: repeat(2, 1fr);
-    display: grid;
-    overflow: visible;
-  }
-
-  .video-gallery .video-card {
-    flex: unset;
   }
 }
 
@@ -104,13 +89,7 @@
   background: var(--color-navy);
 }
 
-.video-card__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-card__video--hidden {
+.video-card__probe {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -118,22 +97,21 @@
   pointer-events: none;
 }
 
-.video-card__video--ready {
-  position: relative;
-  opacity: 1;
-  pointer-events: auto;
-}
-
 .video-card__pending {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background: transparent;
 }
 
 .video-card__pending > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.5) saturate(0.85);
 }
 
 .video-card__pending-overlay {
@@ -143,21 +121,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   padding: 20px;
-  text-align: center;
+  background: rgba(18, 21, 47, 0.45);
   color: var(--color-white);
-}
-
-.video-card__pending-overlay p {
-  margin: 0;
-  font-weight: 700;
-}
-
-.video-card__pending-note {
-  font-size: 11px;
-  font-weight: 400;
-  opacity: 0.85;
+  text-align: center;
 }
 
 .video-card__pending-play {
@@ -179,6 +147,16 @@
   border-left: 16px solid var(--color-navy);
 }
 
+.video-card__pending-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.video-card__pending-note {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
 .video-card__loading {
   position: absolute;
   inset: 0;
@@ -186,7 +164,12 @@
   place-items: center;
   background: rgba(18, 21, 47, 0.35);
   color: var(--color-white);
-  font-size: 14px;
+}
+
+.video-card__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .video-card__meta {

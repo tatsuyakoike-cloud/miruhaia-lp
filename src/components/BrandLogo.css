@@ -1,0 +1,20 @@
+.brand-logo {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+.brand-logo--tagline {
+  width: min(220px, 58vw);
+  height: auto;
+}
+
+.brand-logo--primary {
+  width: min(160px, 42vw);
+  height: auto;
+}
+
+.brand-logo--symbol {
+  width: 36px;
+  height: 36px;
+}

@@ -1,38 +1,21 @@
 import { useState } from "react";
 import { siteContent } from "../content/siteContent";
 import { siteConfig } from "../config/siteConfig";
+import { BrandLogo } from "./BrandLogo";
+import { ContentMosaic } from "./ContentMosaic";
+import { FlowTimeline } from "./FlowTimeline";
 import { SectionShell } from "./SectionShell";
+import { iconAsset, illustrationAsset, photos } from "../lib/assets";
 import "./Sections.css";
 import "./FaqAccordion.css";
 import "./ContactCta.css";
 import "./Footer.css";
 
-function iconPath(name: string): string {
-  return `/assets/miruhaia/icons/miruhaia_icon_${name}.svg`;
-}
-
-function FlowTrack({ items, highlightLast = false }: { items: readonly string[]; highlightLast?: boolean }) {
-  return (
-    <div className="flow-track">
-      {items.map((step, i) => (
-        <span key={step} style={{ display: "contents" }}>
-          <span
-            className={`flow-pill ${highlightLast && i === items.length - 1 ? "flow-pill--violet" : ""}`}
-          >
-            {step}
-          </span>
-          {i < items.length - 1 && <span className="flow-arrow">→</span>}
-        </span>
-      ))}
-    </div>
-  );
-}
-
 export function PainPoints() {
   const { painPoints } = siteContent;
   return (
     <SectionShell tone="white" decos={["grid"]} labelledBy="pain-heading">
-      <p className="section-label">Problem</p>
+      <p className="section-label">お悩み</p>
       <h2 id="pain-heading" className="section-heading">
         {painPoints.title}
       </h2>
@@ -40,7 +23,7 @@ export function PainPoints() {
         {painPoints.items.map((item) => (
           <div key={item.text} className="pain-bubble">
             <div className="pain-bubble__icon">
-              <img src={iconPath(item.icon)} alt="" width={40} height={40} loading="lazy" />
+              <img src={iconAsset(item.icon)} alt="" width={40} height={40} loading="lazy" />
             </div>
             <p>{item.text}</p>
           </div>
@@ -54,7 +37,7 @@ export function MarketChallenge() {
   const { market } = siteContent;
   return (
     <SectionShell tone="spotlight" decos={["rings"]} labelledBy="market-heading">
-      <p className="section-label">Market</p>
+      <p className="section-label">市場</p>
       <h2 id="market-heading" className="section-heading">
         {market.title}
       </h2>
@@ -64,12 +47,16 @@ export function MarketChallenge() {
             <span className="stat-blob__value">{stat.value}</span>
             <span className="stat-blob__label">{stat.label}</span>
             <a className="stat-blob__source" href={stat.url} target="_blank" rel="noopener noreferrer">
-              {stat.source}
+              出典：{stat.source}
             </a>
           </div>
         ))}
       </div>
-      <FlowTrack items={market.cycle} />
+      <FlowTimeline
+        steps={market.cycle.map((label) => ({ label }))}
+        variant="horizontal"
+        numbered={false}
+      />
       <p className="conclusion">{market.conclusion}</p>
     </SectionShell>
   );
@@ -81,11 +68,9 @@ export function CauseSection() {
     <SectionShell tone="ivory" decos={["beam"]} labelledBy="cause-heading">
       <div className="split-feature">
         <div>
-          <p className="section-label">Insight</p>
+          <p className="section-label">原因</p>
           <h2 id="cause-heading" className="section-heading">
-            採用が難しい本当の理由は、
-            <br />
-            <em className="text-violet">会社が見えていない</em>こと。
+            採用が難しい本当の理由は、<em className="text-violet">会社が見えていない</em>こと。
           </h2>
           <ul className="check-list">
             {cause.points.map((point) => (
@@ -95,7 +80,7 @@ export function CauseSection() {
           <p className="feature-body">{cause.body}</p>
         </div>
         <img
-          src="/assets/miruhaia/illustrations/miruhaia_illustration_visible-company.svg"
+          src={illustrationAsset("visible-company")}
           alt="会社の魅力を可視化するイラスト"
           className="split-feature__art"
           loading="lazy"
@@ -111,7 +96,7 @@ export function JobSeekerTrend() {
     <SectionShell tone="violet" decos={["orbit"]} labelledBy="jobseeker-heading">
       <div className="jobseeker-layout">
         <div>
-          <p className="section-label">Trend</p>
+          <p className="section-label">求職者</p>
           <h2 id="jobseeker-heading" className="section-heading">
             {jobSeeker.title}
           </h2>
@@ -119,18 +104,22 @@ export function JobSeekerTrend() {
             <span className="mega-stat__num">{jobSeeker.stat}</span>
             <span className="mega-stat__label">{jobSeeker.statLabel}</span>
             <a className="mega-stat__source" href={jobSeeker.sourceUrl} target="_blank" rel="noopener noreferrer">
-              {jobSeeker.source}
+              出典：{jobSeeker.source}
             </a>
           </div>
         </div>
         <img
           className="jobseeker-layout__art"
-          src="/assets/miruhaia/illustrations/miruhaia_illustration_growth-spotlight.svg"
+          src={illustrationAsset("growth-spotlight")}
           alt=""
           loading="lazy"
         />
       </div>
-      <FlowTrack items={jobSeeker.flow} highlightLast />
+      <FlowTimeline
+        steps={jobSeeker.flow.map((label) => ({ label }))}
+        variant="horizontal"
+        numbered={false}
+      />
       <p className="conclusion">{jobSeeker.conclusion}</p>
     </SectionShell>
   );
@@ -140,13 +129,19 @@ export function RoleComparison() {
   const { roles } = siteContent;
   return (
     <SectionShell tone="white" labelledBy="roles-heading">
-      <p className="section-label">Compare</p>
+      <p className="section-label">比較</p>
       <h2 id="roles-heading" className="section-heading">
         {roles.title}
       </h2>
       <div className="role-duo">
         {roles.items.map((item, i) => (
           <div key={item.label} className={`role-duo__item role-duo__item--${i}`}>
+            <img
+              src={i === 0 ? iconAsset("profile-document") : iconAsset("short-video-phone")}
+              alt=""
+              width={48}
+              height={48}
+            />
             <span className="role-duo__label">{item.label}</span>
             <p>{item.text}</p>
           </div>
@@ -160,14 +155,12 @@ export function RoleComparison() {
 export function SolutionSection() {
   const { solution } = siteContent;
   return (
-    <SectionShell id="features" tone="spotlight" decos={["brackets", "wave"]} labelledBy="solution-heading">
+    <SectionShell id="features" tone="spotlight" decos={["brackets"]} labelledBy="solution-heading">
       <div className="solution-layout">
         <div>
-          <p className="section-label">Solution</p>
+          <p className="section-label">解決策</p>
           <h2 id="solution-heading" className="section-heading">
-            <span className="spot">ミルハイア</span>は、会社のリアルを
-            <br />
-            ショート動画で可視化します。
+            <span className="spot">ミルハイア</span>は、会社のリアルをショート動画で可視化します。
           </h2>
           <div className="promise-row">
             {solution.roles.map((role) => (
@@ -180,7 +173,7 @@ export function SolutionSection() {
           <p className="feature-body">{solution.body}</p>
         </div>
         <img
-          src="/assets/miruhaia/illustrations/miruhaia_illustration_short-video-recruiting.svg"
+          src={illustrationAsset("short-video-recruiting")}
           alt="ショート動画採用支援のイラスト"
           className="solution-layout__art"
           loading="lazy"
@@ -193,23 +186,16 @@ export function SolutionSection() {
 export function SupportScope() {
   const { support } = siteContent;
   return (
-    <SectionShell tone="ivory" decos={["grid"]} labelledBy="support-heading">
-      <p className="section-label">Scope</p>
+    <SectionShell tone="ivory" decos={["wave"]} labelledBy="support-heading">
+      <p className="section-label">支援範囲</p>
       <h2 id="support-heading" className="section-heading">
         {support.title}
       </h2>
-      <div className="support-rail">
-        {support.steps.map((step, i) => (
-          <div key={step.label} className="support-node">
-            <div className="support-node__icon">
-              <img src={iconPath(step.icon)} alt="" width={36} height={36} />
-              <span>{i + 1}</span>
-            </div>
-            <h3>{step.label}</h3>
-            <p>{step.text}</p>
-          </div>
-        ))}
-      </div>
+      <p className="section-lead">戦略から分析まで、6つのステップで一気通貫。専任チームが伴走します。</p>
+      <FlowTimeline
+        steps={support.steps.map((s) => ({ label: s.label, text: s.text, icon: s.icon }))}
+        variant="horizontal"
+      />
     </SectionShell>
   );
 }
@@ -218,58 +204,62 @@ export function ContentFlow() {
   const { contentFlow } = siteContent;
   return (
     <SectionShell tone="white" decos={["beam"]} labelledBy="content-heading">
-      <p className="section-label">Content</p>
-      <h2 id="content-heading" className="section-heading">
-        {contentFlow.title}
-      </h2>
-      <div className="category-cloud">
-        {contentFlow.categories.map((cat) => (
-          <span key={cat} className="category-cloud__item">
-            {cat}
-          </span>
-        ))}
-      </div>
-      <FlowTrack items={contentFlow.funnel} highlightLast />
-      <p className="conclusion">{contentFlow.note}</p>
+      <ContentMosaic title={contentFlow.title} note={contentFlow.note} />
     </SectionShell>
   );
 }
 
 export function OperationTeam() {
   const { operation } = siteContent;
+  const clientSteps = operation.clientTasks.map((label) => ({ label }));
+  const teamRoles = [
+    { label: "ディレクター", icon: "strategy-target" },
+    { label: "企画", icon: "planning-lightbulb" },
+    { label: "撮影・編集", icon: "camera-shooting" },
+    { label: "分析", icon: "analytics-chart" },
+  ];
+
   return (
     <SectionShell tone="violet" decos={["rings"]} labelledBy="operation-heading">
-      <div className="operation-layout">
-        <div>
-          <p className="section-label">Team</p>
-          <h2 id="operation-heading" className="section-heading">
-            {operation.title}
-          </h2>
-          <div className="duo-list">
-            <div>
-              <h3>お客様にお願いすること</h3>
-              <ul>
-                {operation.clientTasks.map((task) => (
-                  <li key={task}>{task}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3>メリット</h3>
-              <ul>
-                {operation.benefits.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-            </div>
+      <p className="section-label">運用体制</p>
+      <h2 id="operation-heading" className="section-heading">
+        {operation.title}
+      </h2>
+
+      <div className="team-flow">
+        <div className="team-flow__panel">
+          <h3>お客様にお願いすること</h3>
+          <FlowTimeline steps={clientSteps} variant="vertical" />
+        </div>
+
+        <div className="team-flow__center">
+          <img
+            src={illustrationAsset("service-flow")}
+            alt="ミルハイアの支援フロー"
+            className="team-flow__diagram"
+            loading="lazy"
+          />
+          <div className="team-flow__roles">
+            {teamRoles.map((role) => (
+              <span key={role.label} className="team-flow__role">
+                <img src={iconAsset(role.icon)} alt="" width={24} height={24} />
+                {role.label}
+              </span>
+            ))}
           </div>
         </div>
-        <img
-          src="/assets/miruhaia/illustrations/miruhaia_illustration_service-flow.svg"
-          alt="支援フローのイラスト"
-          className="operation-layout__art"
-          loading="lazy"
-        />
+
+        <div className="team-flow__panel team-flow__panel--photo">
+          <img src={photos.teamWide} alt="チームで協力する社員" loading="lazy" />
+          <div>
+            <h3>続けるメリット</h3>
+            <ul className="benefit-list">
+              {operation.benefits.map((b) => (
+                <li key={b}>{b}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </SectionShell>
   );
@@ -281,7 +271,7 @@ export function Differentiators() {
     <SectionShell tone="spotlight" decos={["orbit"]} labelledBy="diff-heading">
       <div className="diff-layout">
         <div>
-          <p className="section-label">Why us</p>
+          <p className="section-label">選ばれる理由</p>
           <h2 id="diff-heading" className="section-heading">
             {differentiators.title}
           </h2>
@@ -299,7 +289,7 @@ export function Differentiators() {
           <p className="feature-body">{differentiators.note}</p>
         </div>
         <img
-          src="/assets/miruhaia/illustrations/miruhaia_illustration_small-company-trial.svg"
+          src={illustrationAsset("small-company-trial")}
           alt="中小企業向けの支援イラスト"
           className="diff-layout__art"
           loading="lazy"
@@ -313,18 +303,14 @@ export function ProcessSteps() {
   const { process } = siteContent;
   return (
     <SectionShell tone="white" labelledBy="process-heading">
-      <p className="section-label">Start</p>
+      <p className="section-label">開始まで</p>
       <h2 id="process-heading" className="section-heading">
         {process.title}
       </h2>
-      <ol className="process-orbit">
-        {process.steps.map((step, i) => (
-          <li key={step}>
-            <span>{i + 1}</span>
-            {step}
-          </li>
-        ))}
-      </ol>
+      <FlowTimeline
+        steps={process.steps.map((label) => ({ label }))}
+        variant="horizontal"
+      />
     </SectionShell>
   );
 }
@@ -383,19 +369,14 @@ export function ContactCta() {
     <SectionShell id="contact" tone="violet" decos={["beam", "rings"]} labelledBy="contact-heading">
       <div className="contact-layout">
         <div className="contact-copy">
-          <p className="section-label">Contact</p>
+          <p className="section-label">相談</p>
           <h2 id="contact-heading" className="section-heading">
             {contact.title}
           </h2>
           <a href="#contact-form" className="btn btn--primary">
             {contact.cta}
           </a>
-          <img
-            className="contact-copy__photo"
-            src="/assets/miruhaia/photos/employee-working-laptop-4x5.jpg"
-            alt=""
-            loading="lazy"
-          />
+          <img className="contact-copy__photo" src={photos.laptop} alt="" loading="lazy" />
         </div>
 
         <form id="contact-form" className="contact-form" onSubmit={handleSubmit} noValidate>
@@ -442,13 +423,7 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="container footer__inner">
-        <img
-          src="/assets/miruhaia/logo/miruhaia_logo_primary_outlined.svg"
-          alt="ミルハイア"
-          width={130}
-          height={38}
-        />
-        <p className="footer__brand">{siteConfig.brandName}</p>
+        <BrandLogo variant="tagline" />
         <p className="footer__tagline">見える会社は、選ばれる。</p>
         <nav className="footer__nav" aria-label="フッターナビゲーション">
           {siteConfig.privacyPolicyUrl ? (

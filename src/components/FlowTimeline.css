@@ -1,0 +1,123 @@
+.flow-timeline {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flow-timeline--horizontal {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+@media (min-width: 900px) {
+  .flow-timeline--horizontal {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.flow-timeline--vertical {
+  gap: 0;
+}
+
+.flow-timeline__step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.flow-timeline--horizontal .flow-timeline__step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 36px;
+  right: -4px;
+  width: calc(100% - 48px);
+  height: 3px;
+  margin-left: 48px;
+  background: linear-gradient(90deg, var(--color-violet-light), var(--color-yellow));
+  transform: translateX(50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 899px) {
+  .flow-timeline--horizontal .flow-timeline__step:not(:last-child)::after {
+    display: none;
+  }
+
+  .flow-timeline--horizontal {
+    overflow-x: auto;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(132px, 1fr);
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+  }
+
+  .flow-timeline--horizontal .flow-timeline__step {
+    scroll-snap-align: start;
+  }
+}
+
+.flow-timeline--vertical .flow-timeline__step {
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+  padding: 20px 0 20px 8px;
+}
+
+.flow-timeline--vertical .flow-timeline__step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: 56px;
+  bottom: -8px;
+  width: 3px;
+  background: linear-gradient(180deg, var(--color-violet), var(--color-yellow));
+}
+
+.flow-timeline__marker {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  background: var(--color-white);
+  border-radius: 50%;
+  box-shadow: 0 8px 28px rgba(96, 81, 200, 0.18);
+}
+
+.flow-timeline__marker span {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-violet);
+}
+
+.flow-timeline__marker img {
+  width: 32px;
+  height: 32px;
+}
+
+.flow-timeline__body strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 16px;
+  color: var(--color-navy);
+}
+
+.flow-timeline__body p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+.flow-timeline--vertical .flow-timeline__body {
+  padding-top: 8px;
+}

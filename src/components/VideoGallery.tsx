@@ -1,58 +1,79 @@
 import { useCallback, useRef, useState } from "react";
 import { siteContent } from "../content/siteContent";
 import { videoSamples, type VideoSample } from "../content/videoSamples";
+import { asset, decorationAsset, illustrationAsset } from "../lib/assets";
 import { SectionShell } from "./SectionShell";
 import "./VideoGallery.css";
 
 function VideoCard({ sample }: { sample: VideoSample }) {
   const [ready, setReady] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handleCanPlay = useCallback(() => {
-    setReady(true);
-    setLoading(false);
-  }, []);
+  const handleCanPlay = useCallback(() => setReady(true), []);
+  const handleError = useCallback(() => setReady(false), []);
 
-  const handleError = useCallback(() => {
-    setReady(false);
-    setLoading(false);
-  }, []);
+  const poster = asset(sample.poster);
+  const videoSrc = asset(sample.src);
 
   return (
     <article className="video-card">
       <div className="video-card__shell">
         <img
           className="video-card__frame-deco"
-          src="/assets/miruhaia/decorations/miruhaia_decoration_video-frame.svg"
+          src={decorationAsset("video-frame")}
           alt=""
           aria-hidden="true"
         />
         <div className="video-card__media">
-          <video
-            className={`video-card__video ${ready ? "video-card__video--ready" : "video-card__video--hidden"}`}
-            controls={ready}
-            playsInline
-            preload="metadata"
-            poster={sample.poster}
-            width={360}
-            height={640}
-            onCanPlay={handleCanPlay}
-            onLoadedData={handleCanPlay}
-            onError={handleError}
-          >
-            <source src={sample.src} type="video/mp4" />
-          </video>
-          {!ready && !loading && (
-            <div className="video-card__pending">
-              <img src={sample.poster} alt="" />
-              <div className="video-card__pending-overlay">
+          {ready ? (
+            <video
+              ref={videoRef}
+              className="video-card__video"
+              controls
+              playsInline
+              preload="metadata"
+              poster={poster}
+              width={360}
+              height={640}
+              onCanPlay={handleCanPlay}
+            >
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+          ) : (
+            <button
+              type="button"
+              className="video-card__pending"
+              onClick={() => {
+                const v = videoRef.current;
+                if (v) {
+                  v.src = videoSrc;
+                  v.load();
+                  v.play().catch(() => undefined);
+                }
+              }}
+              aria-label={`${sample.title}の動画を読み込む`}
+            >
+              <img src={poster} alt="" width={360} height={640} />
+              <span className="video-card__pending-overlay">
                 <span className="video-card__pending-play" aria-hidden="true" />
-                <p>動画準備中</p>
-                <p className="video-card__pending-note">MP4を配置すると再生できます</p>
-              </div>
-            </div>
+                <span className="video-card__pending-title">{sample.title}</span>
+                <span className="video-card__pending-note">動画準備中（配置後に再生）</span>
+              </span>
+            </button>
           )}
-          {loading && !ready && <div className="video-card__loading">読み込み中…</div>}
+          {!ready && (
+            <video
+              ref={videoRef}
+              className="video-card__probe"
+              preload="metadata"
+              poster={poster}
+              onCanPlay={handleCanPlay}
+              onLoadedData={handleCanPlay}
+              onError={handleError}
+            >
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+          )}
         </div>
       </div>
       <div className="video-card__meta">
@@ -71,25 +92,22 @@ export function VideoGallery() {
     const el = scrollRef.current;
     if (!el) return;
     const card = el.querySelector<HTMLElement>(".video-card");
-    const amount = card ? card.offsetWidth + 20 : 300;
-    el.scrollBy({ left: direction === "next" ? amount : -amount, behavior: "smooth" });
+    el.scrollBy({ left: direction === "next" ? (card?.offsetWidth ?? 300) + 20 : -((card?.offsetWidth ?? 300) + 20), behavior: "smooth" });
   };
 
   return (
-    <SectionShell id="videos" tone="violet" decos={["beam", "grid"]} labelledBy="videos-heading">
+    <SectionShell id="videos" tone="violet" decos={["beam"]} labelledBy="videos-heading">
       <div className="video-section__head">
         <div>
-          <p className="section-label">Sample</p>
+          <p className="section-label">動画事例</p>
           <h2 id="videos-heading" className="section-heading">
-            どんな動画をつくるのか、
-            <br />
-            <span className="spot">実際にご覧ください。</span>
+            どんな動画をつくるのか、実際にご覧ください。
           </h2>
           <p className="section-lead">{videos.pendingNote}</p>
         </div>
         <img
           className="video-section__illust"
-          src="/assets/miruhaia/illustrations/miruhaia_illustration_growth-spotlight.svg"
+          src={illustrationAsset("growth-spotlight")}
           alt=""
           loading="lazy"
         />

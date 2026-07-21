@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { siteContent } from "../content/siteContent";
 import { siteConfig } from "../config/siteConfig";
+import { BrandLogo } from "./BrandLogo";
 import "./Header.css";
 
 export function Header() {
@@ -24,12 +25,7 @@ export function Header() {
     <header className={`header ${scrolled ? "header--scrolled" : ""}`}>
       <div className="container header__inner">
         <a href="#top" className="header__logo" aria-label={siteConfig.brandName}>
-          <img
-            src="/assets/miruhaia/logo/miruhaia_logo_primary_outlined.svg"
-            alt="ミルハイア"
-            width={140}
-            height={40}
-          />
+          <BrandLogo variant="primary" />
         </a>
 
         <nav className={`header__nav ${menuOpen ? "header__nav--open" : ""}`} aria-label="メインナビゲーション">
@@ -51,7 +47,6 @@ export function Header() {
           type="button"
           className="header__menu-btn"
           aria-expanded={menuOpen}
-          aria-controls="mobile-nav"
           aria-label={menuOpen ? "メニューを閉じる" : "メニューを開く"}
           onClick={() => setMenuOpen((v) => !v)}
         >
