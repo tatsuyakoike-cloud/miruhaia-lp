@@ -6,6 +6,11 @@ import "./PlanCards.css";
 export function PlanCards() {
   const { pricing } = siteContent;
   const planLabels = ["撮影を抑えて開始", "実写 × AI", "継続発信"];
+  const planIcons = [
+    ["camera-shooting", "short-video-phone"],
+    ["camera-shooting", "planning-lightbulb", "short-video-phone"],
+    ["calendar-contract", "camera-shooting", "posting-send"],
+  ] as const;
 
   return (
     <SectionShell id="pricing" tone="white" decos={["orbit", "wave"]} labelledBy="pricing-heading">
@@ -13,11 +18,6 @@ export function PlanCards() {
       <h2 id="pricing-heading" className="section-heading">
         {pricing.title}
       </h2>
-
-      <div className="pricing-philosophy">
-        <img src={iconAsset("camera-shooting")} alt="" width={48} height={48} />
-        <p>{pricing.lead}</p>
-      </div>
 
       <div className="pricing-campaign">
         <span className="pricing-campaign__label">導入キャンペーン</span>
@@ -37,30 +37,23 @@ export function PlanCards() {
                 <span className="plan-tile__type">{planLabels[index]}</span>
                 <h3>{plan.name}</h3>
               </div>
-              <div className="plan-tile__shooting">
-                <div>
-                  <img src={iconAsset("camera-shooting")} alt="" width={28} height={28} />
-                  <span>撮影頻度</span>
-                </div>
-                <strong>{plan.shooting}</strong>
-                <div className="shooting-meter" aria-hidden="true">
-                  {Array.from({ length: 3 }, (_, meterIndex) => (
-                    <i
-                      key={meterIndex}
-                      className={meterIndex <= index ? "shooting-meter__active" : ""}
-                    />
-                  ))}
-                </div>
+              <div className="plan-tile__visual" aria-hidden="true">
+                {planIcons[index].map((icon) => (
+                  <span key={icon}>
+                    <img src={iconAsset(icon)} alt="" width={34} height={34} />
+                  </span>
+                ))}
+              </div>
+              <div className="plan-tile__shooting-note">
+                <img src={iconAsset("camera-shooting")} alt="" width={20} height={20} />
+                <small>撮影</small>
+                <span>{plan.shooting}</span>
               </div>
               <ul>
                 {plan.features.map((feature) => (
                   <li key={feature}>{feature}</li>
                 ))}
               </ul>
-              <a href="#contact" className="plan-tile__link">
-                詳細を相談する
-                <span aria-hidden="true">→</span>
-              </a>
             </article>
           );
         })}
@@ -69,6 +62,10 @@ export function PlanCards() {
       <div className="pricing-cta">
         <a href="#contact" className="btn btn--primary">
           {pricing.cta}
+        </a>
+        <a href="#contact" className="btn btn--secondary">
+          {pricing.performanceCta}
+          <span className="pricing-cta__aside">別途ご相談</span>
         </a>
       </div>
 

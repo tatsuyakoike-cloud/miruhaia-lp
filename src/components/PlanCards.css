@@ -1,25 +1,3 @@
-.pricing-philosophy {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  width: min(100%, 760px);
-  margin: 0 auto 24px;
-  text-align: left;
-}
-
-.pricing-philosophy img {
-  flex: 0 0 auto;
-}
-
-.pricing-philosophy p {
-  margin: 0;
-  color: var(--color-muted);
-  font-size: clamp(14px, 2vw, 16px);
-  font-weight: 700;
-  line-height: 1.8;
-}
-
 .pricing-campaign {
   display: grid;
   justify-items: center;
@@ -118,45 +96,59 @@
   color: var(--color-violet);
 }
 
-.plan-tile__shooting {
-  display: grid;
-  gap: 10px;
-  min-height: 132px;
-  padding: 18px;
-  background: rgba(255, 255, 255, 0.66);
-  border-radius: var(--radius-sm);
+.plan-tile__visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 92px;
+  padding-inline: 18px;
 }
 
-.plan-tile__shooting > div:first-child {
+.plan-tile__visual::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 18%;
+  right: 18%;
+  height: 6px;
+  background: linear-gradient(90deg, var(--color-violet-light), var(--color-yellow));
+  border-radius: 999px;
+  transform: translateY(-50%);
+}
+
+.plan-tile__visual span {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  background: var(--color-white);
+  border-radius: 50%;
+  box-shadow: 0 10px 28px rgba(96, 81, 200, 0.12);
+}
+
+.plan-tile__shooting-note {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--color-muted);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.plan-tile__shooting strong {
-  font-size: clamp(17px, 2.3vw, 20px);
-  line-height: 1.45;
-  color: var(--color-violet-dark);
-}
-
-.shooting-meter {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  align-self: end;
-}
-
-.shooting-meter i {
-  height: 6px;
-  background: var(--color-violet-pale);
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.66);
   border-radius: 999px;
 }
 
-.shooting-meter i.shooting-meter__active {
-  background: linear-gradient(90deg, var(--color-violet), var(--color-yellow));
+.plan-tile__shooting-note small {
+  color: var(--color-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.plan-tile__shooting-note span {
+  margin-left: auto;
+  color: var(--color-violet-dark);
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .plan-tile ul {
@@ -170,21 +162,25 @@
   font-size: 14px;
 }
 
-.plan-tile__link {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 6px;
-  padding-top: 16px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--color-violet);
-  text-decoration: none;
-}
-
 .pricing-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
   margin-top: 36px;
   text-align: center;
+}
+
+.pricing-cta .btn {
+  min-width: min(100%, 280px);
+}
+
+.pricing-cta__aside {
+  padding: 3px 8px;
+  background: var(--color-violet-pale);
+  border-radius: 999px;
+  color: var(--color-violet-dark);
+  font-size: 10px;
 }
 
 .addons-block {
@@ -230,17 +226,11 @@
 }
 
 @media (max-width: 767px) {
-  .pricing-philosophy {
-    align-items: flex-start;
-    gap: 12px;
+  .pricing-cta {
+    flex-direction: column;
   }
 
-  .pricing-philosophy img {
-    width: 38px;
-    height: 38px;
-  }
-
-  .plan-tile__shooting {
-    min-height: auto;
+  .pricing-cta .btn {
+    width: 100%;
   }
 }
