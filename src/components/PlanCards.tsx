@@ -1,10 +1,11 @@
 import { siteContent } from "../content/siteContent";
+import { iconAsset } from "../lib/assets";
 import { SectionShell } from "./SectionShell";
 import "./PlanCards.css";
 
 export function PlanCards() {
   const { pricing } = siteContent;
-  const planLabels = ["AI活用", "素材活用", "定期撮影"];
+  const planLabels = ["撮影を抑えて開始", "実写 × AI", "継続発信"];
 
   return (
     <SectionShell id="pricing" tone="white" decos={["orbit", "wave"]} labelledBy="pricing-heading">
@@ -12,6 +13,11 @@ export function PlanCards() {
       <h2 id="pricing-heading" className="section-heading">
         {pricing.title}
       </h2>
+
+      <div className="pricing-philosophy">
+        <img src={iconAsset("camera-shooting")} alt="" width={48} height={48} />
+        <p>{pricing.lead}</p>
+      </div>
 
       <div className="pricing-campaign">
         <span className="pricing-campaign__label">導入キャンペーン</span>
@@ -30,6 +36,21 @@ export function PlanCards() {
               <div className="plan-tile__head">
                 <span className="plan-tile__type">{planLabels[index]}</span>
                 <h3>{plan.name}</h3>
+              </div>
+              <div className="plan-tile__shooting">
+                <div>
+                  <img src={iconAsset("camera-shooting")} alt="" width={28} height={28} />
+                  <span>撮影頻度</span>
+                </div>
+                <strong>{plan.shooting}</strong>
+                <div className="shooting-meter" aria-hidden="true">
+                  {Array.from({ length: 3 }, (_, meterIndex) => (
+                    <i
+                      key={meterIndex}
+                      className={meterIndex <= index ? "shooting-meter__active" : ""}
+                    />
+                  ))}
+                </div>
               </div>
               <ul>
                 {plan.features.map((feature) => (
