@@ -232,12 +232,13 @@ export function ContentFlow() {
 
 export function OperationTeam() {
   const { operation } = siteContent;
+  const taskIcons = ["profile-document", "camera-shooting", "interest-heart"] as const;
   const teamRoles = [
-    { label: "ディレクター", icon: "strategy-target" },
-    { label: "企画", icon: "planning-lightbulb" },
-    { label: "撮影・編集", icon: "camera-shooting" },
-    { label: "分析", icon: "analytics-chart" },
-  ];
+    { label: "ディレクター", text: "進行管理・窓口", icon: "strategy-target" },
+    { label: "企画", text: "テーマ・台本設計", icon: "planning-lightbulb" },
+    { label: "撮影・編集", text: "素材制作・仕上げ", icon: "camera-shooting" },
+    { label: "分析", text: "数値確認・改善提案", icon: "analytics-chart" },
+  ] as const;
 
   return (
     <SectionShell tone="violet" decos={["rings"]} labelledBy="operation-heading">
@@ -247,48 +248,53 @@ export function OperationTeam() {
       </h2>
 
       <div className="team-flow">
-        <div className="team-flow__visual">
-          <img
-            src={illustrationAsset("service-flow")}
-            alt="ミルハイアの支援フロー"
-            className="team-flow__diagram"
-            loading="lazy"
-          />
+        <p className="team-flow__lead">
+          お客様にお願いするのは3つだけ。企画から投稿・改善までは、専任チームが進めます。
+        </p>
+
+        <div className="team-flow__lane team-flow__lane--client">
+          <span className="team-flow__lane-label">お客様</span>
+          <ol className="team-flow__tasks">
+            {operation.clientTasks.map((task, index) => (
+              <li key={task}>
+                <img src={iconAsset(taskIcons[index])} alt="" width={30} height={30} />
+                <span>0{index + 1}</span>
+                <strong>{task}</strong>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <div className="team-flow__handoff" aria-hidden="true">
+          <span>ここから先は、専任チームへ</span>
+          <i>↓</i>
+        </div>
+
+        <div className="team-flow__lane team-flow__lane--team">
+          <div className="team-flow__team-intro">
+            <span className="team-flow__lane-label">ミルハイア</span>
+            <h3>企画から改善まで、まるごと支援</h3>
+            <img
+              src={illustrationAsset("service-flow")}
+              alt="ミルハイアの支援フロー"
+              loading="lazy"
+            />
+          </div>
+
           <div className="team-flow__roles">
             {teamRoles.map((role) => (
-              <span key={role.label} className="team-flow__role">
-                <img src={iconAsset(role.icon)} alt="" width={24} height={24} />
-                {role.label}
-              </span>
+              <div key={role.label} className="team-flow__role">
+                <img src={iconAsset(role.icon)} alt="" width={34} height={34} />
+                <strong>{role.label}</strong>
+                <span>{role.text}</span>
+              </div>
             ))}
           </div>
         </div>
 
-        <div className="team-flow__details">
-          <div className="team-flow__tasks">
-            <h3>お客様にお願いするのは、3つだけ</h3>
-            <ul>
-              {operation.clientTasks.map((task, index) => (
-                <li key={task}>
-                  <span>0{index + 1}</span>
-                  {task}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <figure className="team-flow__benefits">
-            <img src={photos.teamWide} alt="チームで協力する社員" loading="lazy" />
-            <figcaption>
-            <h3>続けるメリット</h3>
-            <ul className="benefit-list">
-              {operation.benefits.map((b) => (
-                <li key={b}>{b}</li>
-              ))}
-            </ul>
-            </figcaption>
-          </figure>
-        </div>
+        <p className="team-flow__result">
+          専門担当が社内にいなくても、採用コンテンツを継続して蓄積できます。
+        </p>
       </div>
     </SectionShell>
   );

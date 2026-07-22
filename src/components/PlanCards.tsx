@@ -5,7 +5,7 @@ import "./PlanCards.css";
 
 export function PlanCards() {
   const { pricing } = siteContent;
-  const planLabels = ["撮影を抑えて開始", "実写 × AI", "継続発信"];
+  const planLabels = ["小さく開始", "実写 × AI", "企業の魅力を発信"];
   const planIcons = [
     ["camera-shooting", "short-video-phone"],
     ["camera-shooting", "planning-lightbulb", "short-video-phone"],
@@ -43,11 +43,6 @@ export function PlanCards() {
                     <img src={iconAsset(icon)} alt="" width={34} height={34} />
                   </span>
                 ))}
-              </div>
-              <div className="plan-tile__shooting-note">
-                <img src={iconAsset("camera-shooting")} alt="" width={20} height={20} />
-                <small>撮影</small>
-                <span>{plan.shooting}</span>
               </div>
               <ul>
                 {plan.features.map((feature) => (
