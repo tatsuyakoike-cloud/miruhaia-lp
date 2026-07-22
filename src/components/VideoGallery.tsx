@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { siteContent } from "../content/siteContent";
 import { videoSamples, type VideoSample } from "../content/videoSamples";
-import { asset, decorationAsset, illustrationAsset } from "../lib/assets";
+import { asset, illustrationAsset } from "../lib/assets";
 import { SectionShell } from "./SectionShell";
 import "./VideoGallery.css";
 
@@ -15,12 +15,6 @@ function VideoCard({ sample }: { sample: VideoSample }) {
   return (
     <article className="video-card">
       <div className="video-card__shell">
-        <img
-          className="video-card__frame-deco"
-          src={decorationAsset("video-frame")}
-          alt=""
-          aria-hidden="true"
-        />
         <div className="video-card__media">
           <video
             ref={videoRef}

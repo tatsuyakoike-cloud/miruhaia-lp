@@ -72,15 +72,6 @@
   position: relative;
 }
 
-.video-card__frame-deco {
-  position: absolute;
-  inset: -4%;
-  width: 108%;
-  height: 108%;
-  pointer-events: none;
-  z-index: 2;
-}
-
 .video-card__media {
   position: relative;
   aspect-ratio: 9 / 16;
