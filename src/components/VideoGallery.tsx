@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { siteContent } from "../content/siteContent";
 import { videoSamples, type VideoSample } from "../content/videoSamples";
 import { asset, decorationAsset, illustrationAsset } from "../lib/assets";
@@ -6,11 +6,8 @@ import { SectionShell } from "./SectionShell";
 import "./VideoGallery.css";
 
 function VideoCard({ sample }: { sample: VideoSample }) {
-  const [ready, setReady] = useState(false);
+  const [started, setStarted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handleCanPlay = useCallback(() => setReady(true), []);
-  const handleError = useCallback(() => setReady(false), []);
 
   const poster = asset(sample.poster);
   const videoSrc = asset(sample.src);
@@ -25,54 +22,35 @@ function VideoCard({ sample }: { sample: VideoSample }) {
           aria-hidden="true"
         />
         <div className="video-card__media">
-          {ready ? (
-            <video
-              ref={videoRef}
-              className="video-card__video"
-              controls
-              playsInline
-              preload="metadata"
-              poster={poster}
-              width={360}
-              height={640}
-              onCanPlay={handleCanPlay}
-            >
-              <source src={videoSrc} type="video/mp4" />
-            </video>
-          ) : (
+          <video
+            ref={videoRef}
+            className="video-card__video"
+            controls={started}
+            playsInline
+            preload="metadata"
+            poster={poster}
+            width={360}
+            height={640}
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+          {!started && (
             <button
               type="button"
               className="video-card__pending"
               onClick={() => {
-                const v = videoRef.current;
-                if (v) {
-                  v.src = videoSrc;
-                  v.load();
-                  v.play().catch(() => undefined);
-                }
+                setStarted(true);
+                videoRef.current?.play().catch(() => undefined);
               }}
-              aria-label={`${sample.title}の動画を読み込む`}
+              aria-label={`${sample.title}を再生する`}
             >
               <img src={poster} alt="" width={360} height={640} />
               <span className="video-card__pending-overlay">
                 <span className="video-card__pending-play" aria-hidden="true" />
                 <span className="video-card__pending-title">{sample.title}</span>
-                <span className="video-card__pending-note">動画準備中（配置後に再生）</span>
+                <span className="video-card__pending-note">タップして再生</span>
               </span>
             </button>
-          )}
-          {!ready && (
-            <video
-              ref={videoRef}
-              className="video-card__probe"
-              preload="metadata"
-              poster={poster}
-              onCanPlay={handleCanPlay}
-              onLoadedData={handleCanPlay}
-              onError={handleError}
-            >
-              <source src={videoSrc} type="video/mp4" />
-            </video>
           )}
         </div>
       </div>
